@@ -35,7 +35,7 @@
             <div class="card-body">
                 <div>
                     <h2 style="float: left">Clientes</h2>
-                    <a href="" type="button" class="btn btn-info m-b-10 m-l-5" style="float: right">Nuevo Cliente</a>
+                    <a href="{{route("customer.create")}}" type="button" class="btn btn-info m-b-10 m-l-5" style="float: right">Nuevo Cliente</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover " id="myTable">
