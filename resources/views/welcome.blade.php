@@ -1,100 +1,146 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8" />
+    <title>TAIS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <title>Laravel</title>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/Landing/images/favicon.ico">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/Landing/css/bootstrap.min.css" type="text/css">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!--Material Icon -->
+    <link rel="stylesheet" type="text/css" href="/Landing/css/materialdesignicons.min.css" />
 
-            .full-height {
-                height: 100vh;
-            }
+    <!--pe-7 Icon -->
+    <link rel="stylesheet" type="text/css" href="/Landing/css/pe-icon-7-stroke.css" />
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <!-- Magnific-popup -->
+    <link rel="stylesheet" type="text/css" href="/Landing/css/magnific-popup.css">
 
-            .position-ref {
-                position: relative;
-            }
+    <!-- Custom  sCss -->
+    <link rel="stylesheet" type="text/css" href="/Landing/css/style.css" />
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+</head>
 
-            .content {
-                text-align: center;
-            }
+<body>
 
-            .title {
-                font-size: 84px;
-            }
+    <!--Navbar Start-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark">
+        <div class="container-fluid">
+            <!-- LOGO -->
+            <a class="logo text-uppercase" href="index.html">
+                <img src="/Plantilla/images/unt.png" alt="" class="logo-light" height="80px" />
+            </a>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="mdi mdi-menu"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto navbar-center" id="mySidenav">
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                    @guest
+
+                    @if(Route::has('register'))
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="nav-link">{{ __('INICIAR SESIÓN') }}</a>
+                    </li>
+                    @endif
+
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                    <li class="nav-item">
+                        <a href="{{ route('home') }}" class="nav-link">{{ __('MENÚ PRINCIPAL')}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">{{ __('CERRAR SESIÓN')}}</a>
+                    </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    @endguest
+                </ul>
             </div>
         </div>
-    </body>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- home start -->
+    <section class="bg-home bg-gradient" id="home">
+        <div class="home-center">
+            <div class="home-desc-center">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="home-title text-white">
+                                <h2 class="mb-4">VIDRIERIA ALVA</h2>
+                                <p class="text-white-50 home-desc font-16 mb-5">Gestión Logistica</p>
+                                <div class="watch-video mt-5">
+                                    @guest
+                                    @if(Route::has('register'))
+                                        <a href="{{ route('login') }}" class="btn btn-custom mr-4">Iniciar Sesión <i class="mdi mdi-chevron-right ml-1"></i></a>
+                                    @endif
+                                    @else
+                                        <a href="{{ route('home') }}" class="btn btn-custom mr-4">Menú Principal<i class="mdi mdi-chevron-right ml-1"></i></a>
+                                    @endguest
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 offset-lg-1 col-sm-6">
+                            <div class="home-img mo-mt-20">
+                                <img src="/Landing/images/home-img.png" alt="" class="img-fluid mx-auto d-block">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                </div>
+                <!-- end container-fluid -->
+            </div>
+        </div>
+    </section>
+    <!-- home end -->
+
+    <!-- footer start -->
+    <footer class="footer bg-dark">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="text-center">
+                        <p class="text-white-50 mb-4">2021 © Todos los derechos recervados.</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <!-- footer end -->
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" id="back-to-top"> <i class="mdi mdi-chevron-up"> </i> </a>
+
+
+    <!-- javascript -->
+    <script src="/Landing/js/jquery.min.js"></script>
+    <script src="/Landing/js/bootstrap.bundle.min.js"></script>
+    <script src="/Landing/js/jquery.easing.min.js"></script>
+    <script src="/Landing/js/scrollspy.min.js"></script>
+
+    <!-- Magnific Popup -->
+    <script src="/Landing/js/jquery.magnific-popup.min.js"></script>
+
+    <!-- counter js -->
+    <script src="/Landing/js/counter.int.js"></script>
+
+    <!-- custom js -->
+    <script src="/Landing/js/app.js"></script>
+</body>
+
 </html>

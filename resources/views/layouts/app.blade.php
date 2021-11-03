@@ -1,80 +1,205 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
+    <title>Cadena Suministros</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/Plantilla/images/favicon.png">
+    <!-- Custom CSS -->
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    @yield('style')
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="/Plantilla/css/style.css" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="/path/to/cdn/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/css/bootstrap-multiselect.min.css" integrity="sha512-wHTuOcR1pyFeyXVkwg3fhfK46QulKXkLq1kxcEEpjnAPv63B/R49bBqkJHLvoGFq6lvAEKlln2rE1JfIPeQ+iw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7c9d371d92.js" crossorigin="anonymous"></script>
+
+    
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+<body class="header-fix fix-sidebar">
 
+    @php
+        use Illuminate\Support\Facades\Auth;
+
+        $user = Auth::user();
+    @endphp
+
+<style>
+    .select-css {
+ display: block;
+ font-size: 16px;
+ font-family: 'Arial', sans-serif;
+ font-weight: 400;
+ color: #444;
+ line-height: 1.3;
+ padding: .4em 1.4em .3em .8em;
+ width: 400px;
+ max-width: 100%; 
+ box-sizing: border-box;
+ margin: 0;
+ border: 1px solid #aaa;
+ box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
+ border-radius: .3em;
+ -moz-appearance: none;
+ -webkit-appearance: none;
+ appearance: none;
+ background-color: #fff;
+ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+   linear-gradient(to bottom, #ffffff 0%,#f7f7f7 100%);
+ background-repeat: no-repeat, repeat;
+ background-position: right .7em top 50%, 0 0;
+ background-size: .65em auto, 100%;
+}
+.select-css::-ms-expand {
+ display: none;
+}
+.select-css:hover {
+ border-color: #888;
+}
+.select-css:focus {
+ border-color: #aaa;
+ box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+ box-shadow: 0 0 0 3px -moz-mac-focusring;
+ color: #222; 
+ outline: none;
+}
+.select-css option {
+ font-weight:normal;
+}
+</style>
+    
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+        <!-- header header  -->
+        <div class="header">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- Logo -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ route('home') }}" style="padding:8px">
+                        <!-- Logo text -->
+                        <span><img src="/Plantilla/images/unt.png" alt="homepage" class="dark-logo" style="height: 45px" /></span>
+                        
+                    </a>
+                </div>
+                <!-- End Logo -->
+
+                <div class="navbar-collapse">
+                    <!-- toggle and nav items -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link toggle-nav hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <li class="nav-item m-l-10">
+                            <a class="nav-link sidebartoggle hidden-sm-down text-muted  " href="javascript:void(0)">
+                                <i class="ti-menu"></i>
+                            </a>
+                        </li>
                     </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
+                    <!-- User profile and search -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- Profile -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{$user->name}}
+                                <i class="fa fa-user"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right animated slideInRight">
+                                <ul class="dropdown-user">
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href=""> Perfil</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();"> Cerrar Sesión</a></li>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
-                            </li>
-                        @endguest
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
+        <!-- End header header -->
+        <!-- Left Sidebar  -->
+        <div class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebar-menu">
+                        <li class="nav-devider"></li>
+                        <li> <a class="has-arrow  " href="" aria-expanded="false"><i class="fas fa-house-user"></i><span class="hide-menu">PROVEEDORES</span></a>
+                        </li>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+                        <li> <a class="has-arrow  " href="" aria-expanded="false"><i class="fas fa-house-user"></i><span class="hide-menu">CLIENTES</span></a>
+                        </li>
+
+
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </div>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+
+            @yield('section')
+
+            <!-- footer -->
+            <footer class="footer"> © 2021 Todos los Derechos Reservados.</footer>
+            <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
     </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+
+
+    <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+    <script src="/Plantilla/js/lib/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/Plantilla/js/lib/bootstrap/js/popper.min.js"></script>
+    <script src="/Plantilla/js/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="Plantilla/js/jquery.slimscroll.js"></script>
+    <!--Menu sidebar -->
+    <script src="/Plantilla/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="/Plantilla/js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
+
+    <script src="/path/to/cdn/jquery.min.js"></script>
+    <script src="/path/to/cdn/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/js/bootstrap-multiselect.min.js" integrity="sha512-ljeReA8Eplz6P7m1hwWa+XdPmhawNmo9I0/qyZANCCFvZ845anQE+35TuZl9+velym0TKanM2DXVLxSJLLpQWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ 
+    @yield('gojs')
+
+    @yield('scriptselect')
+
+    @yield('number')
+
+    @yield('diagrama')
+
+    @yield('script')
+
+    <!--Custom JavaScript -->
+    <script src="/Plantilla/js/custom.min.js"></script>
+
+    @yield('script1')
+
 </body>
+
 </html>
+
