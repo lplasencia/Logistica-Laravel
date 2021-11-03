@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <title>Cadena Suministros</title>
+    <title>Vidrieria Alva</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -142,7 +142,7 @@
                         <li> <a class="has-arrow  " href="" aria-expanded="false"><i class="fas fa-house-user"></i><span class="hide-menu">PROVEEDORES</span></a>
                         </li>
 
-                        <li> <a class="has-arrow  " href="" aria-expanded="false"><i class="fas fa-house-user"></i><span class="hide-menu">CLIENTES</span></a>
+                        <li> <a class="has-arrow  " href="{{route('customer.index')}}" aria-expanded="false"><i class="fas fa-house-user"></i><span class="hide-menu">CLIENTES</span></a>
                         </li>
 
 
