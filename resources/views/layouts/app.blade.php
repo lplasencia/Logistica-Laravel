@@ -137,17 +137,142 @@
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
-                    <ul id="sidebar-menu">
+                    <ul class="list-unstyled components">
                         <li class="nav-devider"></li>
-                        <li> <a class="has-arrow  " href="" aria-expanded="false"><i class="fas fa-house-user"></i><span class="hide-menu">PROVEEDORES</span></a>
+                        <li class="active">
+                            <a href="#homeSubmenu" aria-expanded="false" ><i class="fas fa-house-user"></i><span class="hide-menu">INDIVIDUAL</span></a>
+                        </li>
+                        {{-- PERFIL --}}
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a href="#perfil" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">PERFIL</span></a>
+                            <ul class="collapse list-unstyled" id="perfil">
+                                <li>
+                                    <a href="#">VER PERFIL</a>
+                                </li>
+                                <li>
+                                    <a href="#">EDITAR PERFIL</a>
+                                </li>
+                            </ul>
                         </li>
 
-                        <li> <a class="has-arrow  " href="{{route('customer.index')}}" aria-expanded="false"><i class="fas fa-house-user"></i><span class="hide-menu">CLIENTES</span></a>
+                        {{-- CLIENTES --}}
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a href="#cliente" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">CLIENTES</span></a>
+                            <ul class="collapse list-unstyled" id="cliente">
+                                <li>
+                                    <a href="{{route('customer.index')}}">LISTA CLIENTES</a>
+                                </li>
+                                <li>
+                                    <a href="#">NUEVO CLIENTE</a>
+                                </li>
+                                <li>
+                                    <a href="#">EDITAR CLIENTE</a>
+                                </li>
+                            </ul>
                         </li>
 
+                        {{-- PROVEEDORES --}}
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a href="#proveedor" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">PROVEEDORES</span></a>
+                            <ul class="collapse list-unstyled" id="proveedor">
+                                <li>
+                                    <a href="#">LISTA PROVEEDORES</a>
+                                </li>
+                                <li>
+                                    <a href="#">NUEVO PROVEEDOR</a>
+                                </li>
+                                <li>
+                                    <a href="#">EDITAR PROVEEDOR</a>
+                                </li>
+                            </ul>
+                        </li>
 
+                        {{-- PRODUCTOS --}}
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a href="#producto" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">PRODUCTOS</span></a>
+                            <ul class="collapse list-unstyled" id="producto">
+                                <li>
+                                    <a href="#">LISTA PRODUCTOS</a>
+                                </li>
+                                <li>
+                                    <a href="#">NUEVO PRODUCTO</a>
+                                </li>
+                                <li>
+                                    <a href="#">EDITAR PRODUCTO</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        {{-- INVENTARIO --}}
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a href="#inventario" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">INVENTARIO</span></a>
+                            <ul class="collapse list-unstyled" id="inventario">
+                                <li>
+                                    <a href="#">VER PRODUCTO</a>
+                                </li>
+                                <li>
+                                    <a href="#">REGISTRAR ENTRADA</a>
+                                </li>
+                                <li>
+                                    <a href="#">REGISTRAR SALIDA</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {{-- COMPRAS --}}
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a href="#compras" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">COMPRAS</span></a>
+                            <ul class="collapse list-unstyled" id="compras">
+                                <li>
+                                    <a href="#">REGISTRAR COMPRA</a>
+                                </li>
+                                <li>
+                                    <a href="#">EDITAR COMPRA</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {{-- VENTAS --}}
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a href="#ventas" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">VENTAS</span></a>
+                            <ul class="collapse list-unstyled" id="ventas">
+                                <li>
+                                    <a href="#">REGISTRAR VENTA</a>
+                                </li>
+                                <li>
+                                    <a href="#">EDITAR VENTA</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {{-- REPORTES --}}
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a href="#reportes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">REPORTES</span></a>
+                            <ul class="collapse list-unstyled" id="reportes">
+                                <li>
+                                    <a href="#">MOVIMIENTOS DE INVENTARIO</a>
+                                </li>
+                                <li>
+                                    <a href="#">COMPRAS</a>
+                                </li>
+                                <li>
+                                    <a href="#">VENTAS</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
+        
+
                 </nav>
+
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -167,6 +292,13 @@
     <!-- End Wrapper -->
     <!-- All Jquery -->
 
+    <script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
 
     <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
     <script src="/Plantilla/js/lib/jquery/jquery.min.js"></script>
