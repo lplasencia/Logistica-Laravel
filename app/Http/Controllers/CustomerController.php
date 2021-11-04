@@ -62,6 +62,32 @@ class CustomerController extends Controller
 
     public function update(Request $request, $id)
     {
-        
+        $data = request()->validate([
+            'nombre' => 'required|max:60',
+            'direccion' => 'required|max:50',
+            'telefono' => 'required|numeric|digits:9',
+            'email' => 'required|max:50',
+        ],
+        [
+            'nombre.required' => 'Ingrese la nombre',
+            'nombre.max' => 'Ingrese solo 60 caracteres',
+            'direccion.required' => 'Ingrese la dirección',
+            'direccion.max' => 'Ingrese solo 50 caracteres',
+            'telefono.required' => 'Ingrese el telefono',
+            'telefono.numeric' => 'Ingrese solo números',
+            'telefono.digits' => 'Ingrese solo 9 números',
+            'email.required' => 'Ingrese el email',
+            'email.max' => 'Ingrese solo 50 caracteres'
+        ]);
+
+        $customer = Customer::findOrFail($id);
+        $customer->nombre = $request->nombre;
+        $customer->direccion = $request->direccion;
+        $customer->telefono = $request->telefono;
+        $customer->email = $request->email;
+        $customer->save();
+
+        return redirect()->route('customer.index')->with('datos', 'Cliente Actualizado Satisfactoriamente');
+
     }
 }
