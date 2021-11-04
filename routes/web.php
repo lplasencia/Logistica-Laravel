@@ -26,6 +26,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('customer/index','CustomerController@index')->name('customer.index');
 Route::get('customer/create','CustomerController@create')->name('customer.create');
 Route::post('customer/store','CustomerController@store')->name('customer.store');
+Route::get('customer/edit/{id}','CustomerController@edit')->name('customer.edit');
+Route::post('customer/update/{id}','CustomerController@update')->name('customer.update');
 
 
 Route::get(('cancelarCustomer'), function(){
