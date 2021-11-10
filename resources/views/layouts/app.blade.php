@@ -138,10 +138,10 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul class="list-unstyled components">
-                        <li class="nav-devider"></li>
+                        {{-- <li class="nav-devider"></li>
                         <li class="active">
                             <a href="#homeSubmenu" aria-expanded="false" ><i class="fas fa-house-user"></i><span class="hide-menu">INDIVIDUAL</span></a>
-                        </li>
+                        </li> --}}
                         {{-- PERFIL --}}
                         <li class="nav-devider"></li>
                         <li>
