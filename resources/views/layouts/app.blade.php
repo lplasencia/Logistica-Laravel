@@ -182,10 +182,10 @@
                                     <a href="{{route('supplier.index')}}">LISTA PROVEEDORES</a>
                                 </li>
                                 <li>
-                                    <a href="#">NUEVO PROVEEDOR</a>
+                                    <a href="{{route('supplier.create')}}">NUEVO PROVEEDOR</a>
                                 </li>
                                 <li>
-                                    <a href="#">EDITAR PROVEEDOR</a>
+                                    <a href="{{route('supplier.list')}}">EDITAR PROVEEDOR</a>
                                 </li>
                             </ul>
                         </li>
