@@ -29,8 +29,20 @@ Route::post('customer/store','CustomerController@store')->name('customer.store')
 Route::get('customer/edit/{id}','CustomerController@edit')->name('customer.edit');
 Route::put('customer/update/{id}','CustomerController@update')->name('customer.update');
 Route::get('/customer/delete/{id}','CustomerController@delete')->name('customer.delete');
-
-
 Route::get(('cancelarCustomer'), function(){
     return redirect()->route('customer.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarCustomer');
+
+//Supplier
+
+Route::get('supplier/index','SupplierController@index')->name('supplier.index');
+Route::get('supplier/create','SupplierController@create')->name('supplier.create');
+Route::post('customer/store','CustomerController@store')->name('customer.store');
+Route::get('customer/edit/{id}','CustomerController@edit')->name('customer.edit');
+Route::put('customer/update/{id}','CustomerController@update')->name('customer.update');
+Route::get('/customer/delete/{id}','CustomerController@delete')->name('customer.delete');
+Route::get(('cancelarCustomer'), function(){
+    return redirect()->route('customer.index')->with('datos', 'Acción Cancelada');
+})->name('cancelarCustomer');
+
+

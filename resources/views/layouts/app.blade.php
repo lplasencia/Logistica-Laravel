@@ -179,7 +179,7 @@
                             <a href="#proveedor" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">PROVEEDORES</span></a>
                             <ul class="collapse list-unstyled" id="proveedor">
                                 <li>
-                                    <a href="#">LISTA PROVEEDORES</a>
+                                    <a href="{{route('supplier.index')}}">LISTA PROVEEDORES</a>
                                 </li>
                                 <li>
                                     <a href="#">NUEVO PROVEEDOR</a>

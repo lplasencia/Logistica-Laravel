@@ -6,12 +6,12 @@
 <!-- Bread crumb -->
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h3 class="text-primary">Clientes</h3>
+        <h3 class="text-primary">Proveedor</h3>
     </div>
     <div class="col-md-7 align-self-center">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="">Clientes</a></li>
-            <li class="breadcrumb-item active">Lista de Clientes</li>
+            <li class="breadcrumb-item"><a href="">Proveedores</a></li>
+            <li class="breadcrumb-item active">Lista de Proveedores</li>
         </ol>
     </div>
 </div>
@@ -34,8 +34,7 @@
 
             <div class="card-body">
                 <div>
-                    <h2 style="float: left">Clientes</h2>
-                    <a href="{{route("customer.create")}}" type="button" class="btn btn-info m-b-10 m-l-5" style="float: right">Nuevo Cliente</a>
+                    <h2 style="float: left">Proveedores</h2>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover " id="myTable">
@@ -43,25 +42,23 @@
                             <tr>
                                 <th>N°</th>
                                 <th>Nombre</th>
+                                <th>Representante</th>
+                                <th>RUC</th>
                                 <th>Direccion</th>
                                 <th>Telefono</th>
                                 <th>Email</th>
-                                <th style="text-align:center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($customer as $item)
+                            @foreach($supplier as $item)
                             <tr>
                                 <th scope="row" style="color: black; text-align: center">{{ $item->id }}</th>
                                 <td>{{ $item->nombre }}</td>
+                                <td>{{ $item->representante }}</td>
+                                <td>{{ $item->RUC }}</td>
                                 <td>{{ $item->direccion }}</td>
                                 <td>{{ $item->telefono }}</td>
                                 <td>{{ $item->email }}</td>
-                                
-                                <td style="text-align:center">
-                                    <a href="{{route('customer.edit',$item->id)}}"><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a>
-                                    <a href="#" onclick="eliminar({{$item['id']}})" id="eliminar"  data-id="{{$item['id']}}"><i class="fas fa-trash-alt fa-fw" style="color:#3084D7; font-size: 20px;"></i></a>
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -76,59 +73,6 @@
 </div>
 <!-- End Container fluid  -->
 
-<div class="modal" id="Eliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content" style="width: 140%;">
-            <div class="modal-header bg-danger text-white d-flex justify-content-center">
-                <h5 class="modal-title" id="exampleModalLabel" style="color: white">ELIMINAR CLIENTE</h5>
-            </div>
-            <div class="modal-body d-flex justify-content-center" style="text-align: center;">¿ Quieres eliminar este Cliente ?</div>
-            <div class="modal-body d-flex justify-content-center" style="padding-top: 0px;">
-                <i class="fas fa-trash-alt fa-3x text-danger"></i>
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <button class="btn btn-outline-danger cerrarModal" style="margin-right: 6%;" type="button" data-dismiss="modal">Cancelar</button>
-                <form method="POST" action="">
-                    @method('DELETE')
-                    @csrf
-                    <a class="btn btn-danger" style="color: white" onclick="$(this).closest('form').submit();">Eliminar</a>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-@endsection
-
-@section('script')
-<script>
-
-    // document.getElementById("eliminar").onclick = function() {
-    //     var button = $(event.relatedTarget)
-    //     var id = button.data('id')
-    //     alert(id)
-    // }
-
-    function eliminar(id){
-        swal({
-            title: "¿Seguro que desea eliminar el elemento?",
-            text: "Una vez eliminado no se podrá recuperar",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-        .then((willDelete) => {
-            if (willDelete) {
-                $.get('/customer/delete/'+id, function(data){
-                    location.reload();
-                });
-            } else {
-                swal("Acción Cancelada");
-            }
-        });
-    }
-
-</script>
 @endsection
 
 
