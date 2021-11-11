@@ -165,10 +165,10 @@
                                     <a href="{{route('customer.index')}}">LISTA CLIENTES</a>
                                 </li>
                                 <li>
-                                    <a href="#">NUEVO CLIENTE</a>
+                                    <a href="{{route('customer.create')}}">NUEVO CLIENTE</a>
                                 </li>
                                 <li>
-                                    <a href="#">EDITAR CLIENTE</a>
+                                    <a href="{{route('customer.list')}}">EDITAR CLIENTE</a>
                                 </li>
                             </ul>
                         </li>

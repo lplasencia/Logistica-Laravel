@@ -54,6 +54,12 @@ class CustomerController extends Controller
         return redirect()->route('customer.index')->with('datos', 'Cliente Registrado Satisfactoriamente');
     }
 
+    public function list()
+    {
+        $customer = Customer::get();
+        return view('customer.list',compact('customer'));
+    }
+
     public function edit($id)
     {
         $customer = Customer::findOrFail($id);

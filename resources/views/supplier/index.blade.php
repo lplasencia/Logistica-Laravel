@@ -55,7 +55,7 @@
                                 <th scope="row" style="color: black; text-align: center">{{ $item->id }}</th>
                                 <td>{{ $item->nombre }}</td>
                                 <td>{{ $item->representante }}</td>
-                                <td>{{ $item->RUC }}</td>
+                                <td>{{ $item->ruc }}</td>
                                 <td>{{ $item->direccion }}</td>
                                 <td>{{ $item->telefono }}</td>
                                 <td>{{ $item->email }}</td>

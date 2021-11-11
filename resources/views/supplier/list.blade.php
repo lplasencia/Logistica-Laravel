@@ -56,12 +56,12 @@
                                 <th scope="row" style="color: black; text-align: center">{{ $item->id }}</th>
                                 <td>{{ $item->nombre }}</td>
                                 <td>{{ $item->representante }}</td>
-                                <td>{{ $item->RUC }}</td>
+                                <td>{{ $item->ruc }}</td>
                                 <td>{{ $item->direccion }}</td>
                                 <td>{{ $item->telefono }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td style="text-align:center">
-                                    <a href="{{route('customer.edit',$item->id)}}"><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a>
+                                    <a href="{{route('supplier.edit',$item->id)}}"><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a>
                                     <a href="#" onclick="eliminar({{$item['id']}})" id="eliminar"  data-id="{{$item['id']}}"><i class="fas fa-trash-alt fa-fw" style="color:#3084D7; font-size: 20px;"></i></a>
                                 </td>
                             </tr>
@@ -79,6 +79,38 @@
 <!-- End Container fluid  -->
 
 @endsection
+
+@section('script')
+<script>
+
+    // document.getElementById("eliminar").onclick = function() {
+    //     var button = $(event.relatedTarget)
+    //     var id = button.data('id')
+    //     alert(id)
+    // }
+
+    function eliminar(id){
+        swal({
+            title: "¿Seguro que desea eliminar el elemento?",
+            text: "Una vez eliminado no se podrá recuperar",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.get('/supplier/delete/'+id, function(data){
+                    location.reload();
+                });
+            } else {
+                swal("Acción Cancelada");
+            }
+        });
+    }
+
+</script>
+@endsection
+
 
 
 @section('script1')
