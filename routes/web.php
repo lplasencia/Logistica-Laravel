@@ -49,6 +49,15 @@ Route::get(('cancelarSupplier'), function(){
 
 //Product
 
-
+Route::get('product/index','ProductController@index')->name('product.index');
+Route::get('product/create','ProductController@create')->name('product.create');
+Route::post('product/store','ProductController@store')->name('product.store');
+Route::get('product/list','ProductController@list')->name('product.list');
+Route::get('product/edit/{id}','ProductController@edit')->name('product.edit');
+Route::put('product/update/{id}','ProductController@update')->name('product.update');
+Route::get('/product/delete/{id}','ProductController@delete')->name('product.delete');
+Route::get(('cancelarProduct'), function(){
+    return redirect()->route('product.index')->with('datos', 'Acción Cancelada');
+})->name('cancelarProduct');
 
 

@@ -196,13 +196,13 @@
                             <a href="#producto" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">PRODUCTOS</span></a>
                             <ul class="collapse list-unstyled" id="producto">
                                 <li>
-                                    <a href="#">LISTA PRODUCTOS</a>
+                                    <a href="{{route('product.index')}}">LISTA PRODUCTOS</a>
                                 </li>
                                 <li>
-                                    <a href="#">NUEVO PRODUCTO</a>
+                                    <a href="{{route('product.create')}}">NUEVO PRODUCTO</a>
                                 </li>
                                 <li>
-                                    <a href="#">EDITAR PRODUCTO</a>
+                                    <a href="{{route('product.list')}}">EDITAR PRODUCTO</a>
                                 </li>
                             </ul>
                         </li>
