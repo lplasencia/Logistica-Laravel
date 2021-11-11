@@ -17,6 +17,8 @@ class CreateSuppliersTable extends Migration
             $table->id();
             $table->bigInteger('company_id')->unsigned();
             $table->string('nombre')->nullable();
+            $table->string('representante')->nullable();
+            $table->string('ruc')->nullable();
             $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
             $table->string('email')->nullable();

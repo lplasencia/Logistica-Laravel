@@ -60,7 +60,7 @@
                                 
                                 <td style="text-align:center">
                                     <a href="{{route('customer.edit',$item->id)}}"><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a>
-                                    <a href="#" data-toggle="modal" data-target="#Eliminar" data-id="{{$item['id']}}"><i class="fas fa-trash-alt fa-fw" style="color:#3084D7; font-size: 20px;"></i></a>
+                                    <a href="#" onclick="eliminar({{$item['id']}})" id="eliminar"  data-id="{{$item['id']}}"><i class="fas fa-trash-alt fa-fw" style="color:#3084D7; font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -102,6 +102,32 @@
 
 @section('script')
 <script>
+
+    // document.getElementById("eliminar").onclick = function() {
+    //     var button = $(event.relatedTarget)
+    //     var id = button.data('id')
+    //     alert(id)
+    // }
+
+    function eliminar(id){
+        swal({
+            title: "¿Seguro que desea eliminar el elemento?",
+            text: "Una vez eliminado no se podrá recuperar",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.get('/customer/delete/'+id, function(data){
+                    location.reload();
+                });
+            } else {
+                swal("Acción Cancelada");
+            }
+        });
+    }
+
     $('#Eliminar').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
         var id = button.data('id')

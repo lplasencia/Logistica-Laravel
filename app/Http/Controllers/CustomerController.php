@@ -90,4 +90,10 @@ class CustomerController extends Controller
         return redirect()->route('customer.index')->with('datos', 'Cliente Actualizado Satisfactoriamente');
 
     }
+
+    public function delete($id)
+    {
+        $customer = Customer::findOrFail($id);
+        $customer->delete();
+    }
 }
