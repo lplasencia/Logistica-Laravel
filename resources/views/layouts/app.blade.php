@@ -17,6 +17,8 @@
 
     @yield('style')
 
+    @yield('estilos')
+
     <link href="/Plantilla/css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/path/to/cdn/bootstrap.min.css" />
@@ -216,7 +218,7 @@
                                     <a href="#">VER PRODUCTO</a>
                                 </li>
                                 <li>
-                                    <a href="#">REGISTRAR ENTRADA</a>
+                                    <a href="{{route('entrada.index')}}">REGISTRAR ENTRADA</a>
                                 </li>
                                 <li>
                                     <a href="#">REGISTRAR SALIDA</a>
@@ -330,6 +332,8 @@
     <script src="/Plantilla/js/custom.min.js"></script>
 
     @yield('script1')
+
+    @yield('script2')
 
 </body>
 

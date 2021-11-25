@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('nombre')->nullable();
             $table->string('descripcion')->nullable();
+            $table->bigInteger('stock')->nullable();
             $table->string('precio_compra')->nullable();
             $table->string('precio_venta')->nullable();
             $table->bigInteger('company_id')->unsigned();

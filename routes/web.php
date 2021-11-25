@@ -60,4 +60,9 @@ Route::get(('cancelarProduct'), function(){
     return redirect()->route('product.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarProduct');
 
+//Inventary
+
+Route::get('inventory/entrada/index','InventaryController@entrada')->name('entrada.index');
+Route::get('EncontrarProducto/{id}','InventaryController@encontrarProducto');
+
 
