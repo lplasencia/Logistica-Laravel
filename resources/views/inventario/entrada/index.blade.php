@@ -102,7 +102,8 @@
                                             <th class="text-center">CODIGO</th>                                 
                                             <th class="text-center">DESCRIPCIÓN</th>
                                             <th class="text-center">UNIDAD</th>
-                                            <th  class="text-center">CANTIDAD</th>                                            
+                                            <th  class="text-center">CANTIDAD</th> 
+                                            <th  class="text-center">PRECIO</th>                                            
                                             <th class="text-center">TOTAL</th>
                                         </thead>
                                         <tfoot>
@@ -162,8 +163,7 @@
 
     function mostrarProducto(){                            
         producto_id=$("#producto_id").val();             
-              $.get('/EncontrarProducto/'+producto_id, function(data){ 
-                  alert(data[0].nombre);                        
+              $.get('/EncontrarProducto/'+producto_id, function(data){                       
                   $('input[name=producto_id]').val(data[0].id);   
                   $('input[name=unidad]').val(data[1].descripcion);    
                   $('input[name=precio]').val(data[0].precio_compra);     
@@ -182,14 +182,14 @@
 
 
     function agregarDetalle()
-    {
+    {  
         descripcion = $('#producto_id option:selected').text();    
         if (descripcion=='Seleccione Producto')
         {
             mostrarMensajeError("Por favor seleccione el Producto");    
             return false;   
-        }     
-        let cantidad=$("#cantidad").val();       
+        }
+        let cantidad=$("#cantidad").val();      
         if (cantidad=='' || Number(cantidad)==0 || cantidad==null)
         {
             mostrarMensajeError("Por favor ingrese cantidad del producto");    
@@ -199,7 +199,7 @@
         {
             mostrarMensajeError("Por favor debe escribir cantidad del producto mayor a 0");    
             return false;
-        }  
+        }       
         pventa=$("#precio").val();
         if (pventa=='' || pventa==0)
         {
@@ -220,7 +220,7 @@
         }
         if  (band==true)
         {
-            mostrarMensajeError("No puede volver a ingresar el mismo producto");    
+            mostrarMensajeError("No puede volver a registrar el mismo producto");    
             return false;
         }
         else
@@ -231,7 +231,7 @@
             controlproducto[cont]=cod_producto;
             total=total + subtotal[cont]; 
                     
-            var fila='<tr class="selected" id="fila'+cont+'"><td style="text-align:center;"><button type="button" class="btn btn-danger btn-xs" onclick="eliminardetalle('+cod_producto+','+cont+');"><i class="fa fa-times" ></i></button></td><td style="text-align:center;"><input type="text" name="cod_producto[]" value="'+ cod_producto +'" readonly style="width:50px; text-align:center;"></td><td>'+ descripcion +'</td><td><input type="text" name="unidad[]" value="'+ unidad +'" style="width:140px; text-align:center;"></td><td style="text-align:center;"><input type="number" name="cantidad[]" value="'+ cantidad +'" style="width:80px; text-align:center;" readonly></td><td style="text-align:center;">'+number_format(subtotal[cont],2)+'</td></tr>';        
+            var fila='<tr class="selected" id="fila'+cont+'"><td style="text-align:center;"><button type="button" class="btn btn-danger btn-xs" onclick="eliminardetalle('+cod_producto+','+cont+');"><i class="fa fa-times" ></i></button></td><td style="text-align:right;"><input type="text" name="cod_producto[]" value="'+ cod_producto +'" readonly style="width:50px; text-align:right;"></td><td>'+ descripcion +'</td><td><input type="text" name="unidad[]" value="'+ unidad +'" readonly style="width:140px; text-align:left;"></td><td style="text-align:right;"><input type="number" name="cantidad[]" value="'+ cantidad +'" style="width:80px; text-align:right;" readonly></td><td  style="text-align:right;"><input type="number" name="pventa[]" value="'+ pventa +'" style="width:80px; text-align:right;" readonly></td><td style="text-align:right;">'+number_format(subtotal[cont],2)+'</td></tr>';        
             $('#detalles').append(fila);      
             detalleventa.push({
                 codigo:cod_producto,
@@ -242,21 +242,59 @@
             });        
             cont++;
         }
+        tipo=$('#seltipo').val();
+        if  (tipo == 1)
+        {
+            IGV = total * 0.18;
+            aux = total + IGV;
+        }
+        else
+        {
+            IGV = 0;
+            aux = total;
+        }
+
     }
 
     function limpiar()
     {
         $("#cantidad").val(0);
         $("#precio").val(0);
-        $("#producto_id").val(0);
+        $("#IGV").val(0);
     }
 
     function eliminardetalle(codigo,index)
     {
+        total=total-subtotal[index]; 
+        tam=detalleventa.length;
+        var i=0;
+        var pos;      
+        while (i<tam)
+        {
+            if (detalleventa[i].codigo==codigo)
+            {
+                pos=i;      
+                break;                   
+            }
+            i=i+1;
+        }
+        if  (tipo == 1)
+        {
+            IGV = total * 0.18;
+            aux = total + IGV;
+        }
+        else
+        {
+            IGV = 0;
+            aux = total;
+        }
+
         detalleventa.splice(pos,1);    
         $('#fila'+index).remove();
         controlproducto[index]="";
-
+        $('#IGV').val(number_format(IGV,2));
+        $('#subtotal').val(number_format(total,2));
+        $('#total').val(number_format(aux,2));
    }
 
    function number_format(amount, decimals) 
@@ -276,10 +314,8 @@
         return amount_parts.join('.');
     }
 
-
-
-
 </script>
+
 
 @section('script2')
     <script src="/select2/bootstrap-select.min.js"></script>     
