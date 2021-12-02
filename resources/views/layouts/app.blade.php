@@ -221,7 +221,7 @@
                                     <a href="{{route('entrada.index')}}">REGISTRAR ENTRADA</a>
                                 </li>
                                 <li>
-                                    <a href="#">REGISTRAR SALIDA</a>
+                                    <a href="{{route('salida.index')}}">REGISTRAR SALIDA</a>
                                 </li>
                             </ul>
                         </li>

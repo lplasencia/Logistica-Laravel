@@ -63,6 +63,7 @@ Route::get(('cancelarProduct'), function(){
 //Inventary
 
 Route::get('inventory/entrada/index','InventaryController@entrada')->name('entrada.index');
+Route::get('inventory/salida/index','InventaryController@salida')->name('salida.index');
 Route::get('EncontrarProducto/{id}','InventaryController@encontrarProducto');
 
 
