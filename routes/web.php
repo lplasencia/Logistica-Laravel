@@ -77,3 +77,7 @@ Route::get(('cancelarEmpleado'), function(){
 //User
 
 Route::get('mantenimiento/usuario/index','UserController@index')->name('usuario.index');
+Route::get('mantenimiento/usuario/create','UserController@create')->name('usuario.create');
+Route::get(('cancelarUsuario'), function(){
+    return redirect()->route('usuario.index')->with('datos', 'Acción Cancelada');
+})->name('cancelarUsuario');

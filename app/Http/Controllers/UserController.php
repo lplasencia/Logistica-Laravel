@@ -12,4 +12,9 @@ class UserController extends Controller
         $user = User::get();
         return view('mantenimiento.usuario.index',compact('user'));
     }
+
+    public function create()
+    {
+        return view('mantenimiento.usuario.create');
+    }
 }

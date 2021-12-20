@@ -11,6 +11,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/Plantilla/images/favicon.png">
     <!-- Custom CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -26,6 +27,8 @@
 
     <script src="https://kit.fontawesome.com/7c9d371d92.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
     
 </head>
 
@@ -286,6 +289,14 @@
         <!-- Page wrapper  -->
         <div class="page-wrapper">
 
+            <script>
+                $(document).ready(function () {
+                    $('#sidebarCollapse').on('click', function () {
+                        $('#sidebar').toggleClass('active');
+                    });
+                });
+            </script>
+
             @yield('section')
 
             <!-- footer -->
@@ -296,14 +307,6 @@
     </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
-
-    <script>
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
-        });
-    </script>
 
     <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
     <script src="/Plantilla/js/lib/jquery/jquery.min.js"></script>
@@ -320,8 +323,6 @@
     <script src="/path/to/cdn/jquery.min.js"></script>
     <script src="/path/to/cdn/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/js/bootstrap-multiselect.min.js" integrity="sha512-ljeReA8Eplz6P7m1hwWa+XdPmhawNmo9I0/qyZANCCFvZ845anQE+35TuZl9+velym0TKanM2DXVLxSJLLpQWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
- 
-    @yield('gojs')
 
     @yield('scriptselect')
 
