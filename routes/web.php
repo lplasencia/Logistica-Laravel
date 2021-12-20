@@ -81,3 +81,11 @@ Route::get('mantenimiento/usuario/create','UserController@create')->name('usuari
 Route::get(('cancelarUsuario'), function(){
     return redirect()->route('usuario.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarUsuario');
+
+//Document
+
+Route::get('mantenimiento/documento/index','DocumentController@index')->name('documento.index');
+Route::get('mantenimiento/documento/create','DocumentController@create')->name('documento.create');
+Route::get(('cancelarDocumento'), function(){
+    return redirect()->route('documento.index')->with('datos', 'Acción Cancelada');
+})->name('cancelarDocumento');

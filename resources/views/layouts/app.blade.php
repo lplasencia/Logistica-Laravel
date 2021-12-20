@@ -159,7 +159,7 @@
                                     <a href="{{route('usuario.index')}}">USUARIO</a>
                                 </li>
                                 <li>
-                                    <a href="#">DOCUMENTO</a>
+                                    <a href="{{route('documento.index')}}">DOCUMENTO</a>
                                 </li>
                             </ul>
                         </li>
@@ -256,6 +256,9 @@
                                 </li>
                                 <li>
                                     <a href="#">EDITAR VENTA</a>
+                                </li>
+                                <li>
+                                    <a href="#">CONFIG. COMPROBANTE</a>
                                 </li>
                             </ul>
                         </li>
