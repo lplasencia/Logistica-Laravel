@@ -35,7 +35,7 @@
             <div class="card-body">
                 <div>
                     <h2 style="float: left">Empleados</h2>
-                    <a href="{{-- {{ route('empresa.create') }} --}}" type="button" class="btn btn-info m-b-10 m-l-5" style="float: right">Nuevo Empleado</a>
+                    <a href="{{ route('empleado.create') }}" type="button" class="btn btn-info m-b-10 m-l-5" style="float: right">Nuevo Empleado</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover " id="myTable">

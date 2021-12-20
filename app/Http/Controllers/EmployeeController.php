@@ -12,4 +12,9 @@ class EmployeeController extends Controller
         $employee = Employee::get();
         return view('mantenimiento.empleado.index',compact('employee'));
     }
+
+    public function create()
+    {
+        return view('mantenimiento.empleado.create');
+    }
 }

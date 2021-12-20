@@ -69,5 +69,6 @@ Route::get('EncontrarProducto/{id}','InventaryController@encontrarProducto');
 //Employee
 
 Route::get('mantenimiento/empleado/index','EmployeeController@index')->name('empleado.index');
+Route::get('mantenimiento/empleado/create','EmployeeController@create')->name('empleado.create');
 
 
