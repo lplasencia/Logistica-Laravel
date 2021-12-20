@@ -71,4 +71,6 @@ Route::get('EncontrarProducto/{id}','InventaryController@encontrarProducto');
 Route::get('mantenimiento/empleado/index','EmployeeController@index')->name('empleado.index');
 Route::get('mantenimiento/empleado/create','EmployeeController@create')->name('empleado.create');
 
-
+Route::get(('cancelarEmpleado'), function(){
+    return redirect()->route('empleado.index')->with('datos', 'Acción Cancelada');
+})->name('cancelarEmpleado');
