@@ -144,16 +144,19 @@
                         <li class="active">
                             <a href="#homeSubmenu" aria-expanded="false" ><i class="fas fa-house-user"></i><span class="hide-menu">INDIVIDUAL</span></a>
                         </li> --}}
-                        {{-- PERFIL --}}
+                        {{-- MANTENIMIENTO --}}
                         <li class="nav-devider"></li>
                         <li>
-                            <a href="#perfil" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">PERFIL</span></a>
-                            <ul class="collapse list-unstyled" id="perfil">
+                            <a href="#mantenimiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">MANTENIMIENTO</span></a>
+                            <ul class="collapse list-unstyled" id="mantenimiento">
                                 <li>
-                                    <a href="#">VER PERFIL</a>
+                                    <a href="{{route('empleado.index')}}">EMPLEADO</a>
                                 </li>
                                 <li>
-                                    <a href="#">EDITAR PERFIL</a>
+                                    <a href="#">USUARIO</a>
+                                </li>
+                                <li>
+                                    <a href="#">DOCUMENTO</a>
                                 </li>
                             </ul>
                         </li>
