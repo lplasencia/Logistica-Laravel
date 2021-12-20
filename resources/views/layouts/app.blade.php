@@ -258,7 +258,7 @@
                                     <a href="#">EDITAR VENTA</a>
                                 </li>
                                 <li>
-                                    <a href="#">CONFIG. COMPROBANTE</a>
+                                    <a href="{{route('comprobante.index')}}">CONFIG. COMPROBANTE</a>
                                 </li>
                             </ul>
                         </li>

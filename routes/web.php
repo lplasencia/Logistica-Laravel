@@ -89,3 +89,11 @@ Route::get('mantenimiento/documento/create','DocumentController@create')->name('
 Route::get(('cancelarDocumento'), function(){
     return redirect()->route('documento.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarDocumento');
+
+//Comprobante
+
+Route::get('venta/comprobante/index','ComprobanteController@index')->name('comprobante.index');
+Route::get('venta/comprobante/create','ComprobanteController@create')->name('comprobante.create');
+Route::get(('cancelarComprobante'), function(){
+    return redirect()->route('comprobante.index')->with('datos', 'Acción Cancelada');
+})->name('cancelarComprobante');
