@@ -153,7 +153,7 @@
                                     <a href="{{route('empleado.index')}}">EMPLEADO</a>
                                 </li>
                                 <li>
-                                    <a href="#">USUARIO</a>
+                                    <a href="{{route('usuario.index')}}">USUARIO</a>
                                 </li>
                                 <li>
                                     <a href="#">DOCUMENTO</a>
