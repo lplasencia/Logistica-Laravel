@@ -43,8 +43,6 @@
                                 <th>N°</th>
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
-                                <th>Precio Compra</th>
-                                <th>Precio Venta</th>
                                 <th>Unidad Medida</th>
                                 <th>Categoria</th>
                             </tr>
@@ -55,8 +53,6 @@
                                 <th scope="row" style="color: black; text-align: center">{{ $item->id }}</th>
                                 <td>{{ $item->nombre }}</td>
                                 <td>{{ $item->descripcion }}</td>
-                                <td>{{ $item->precio_compra }}</td>
-                                <td>{{ $item->precio_venta }}</td>
                                 <td>{{ $item->unit->descripcion }}</td>
                                 <td>{{ $item->category->descripcion }}</td>
                             </tr>
