@@ -94,6 +94,17 @@ Route::get(('cancelarDocumento'), function(){
 
 Route::get('venta/comprobante/index','ComprobanteController@index')->name('comprobante.index');
 Route::get('venta/comprobante/create','ComprobanteController@create')->name('comprobante.create');
+Route::get('venta/comprobante/configuracion/index','ComprobanteController@cindex')->name('configuracion.index');
 Route::get(('cancelarComprobante'), function(){
     return redirect()->route('comprobante.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarComprobante');
+
+//Entrada
+
+Route::get('compra/entrada/index','EntradaController@index')->name('entrada.index');
+Route::get(('cancelarEntrada'), function(){
+    return redirect()->route('home')->with('datos', 'Acción Cancelada');
+})->name('cancelarEntrada');
+
+
+

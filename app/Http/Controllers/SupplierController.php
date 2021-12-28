@@ -15,12 +15,12 @@ class SupplierController extends Controller
     public function index()
     {
         $supplier = Supplier::get();
-        return view('supplier.index',compact('supplier'));
+        return view('compra.supplier.index',compact('supplier'));
     }
 
     public function create()
     {
-        return view('supplier.create');
+        return view('compra.supplier.create');
     }
 
     public function store(Request $request)
@@ -67,13 +67,13 @@ class SupplierController extends Controller
     public function list()
     {
         $supplier = Supplier::get();
-        return view('supplier.list',compact('supplier'));
+        return view('compra.supplier.list',compact('supplier'));
     }
 
     public function edit($id)
     {
         $supplier = Supplier::findOrFail($id);
-        return view('supplier.edit',compact('supplier'));
+        return view('compra.supplier.edit',compact('supplier'));
     }
 
     public function update(Request $request, $id)

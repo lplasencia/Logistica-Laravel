@@ -182,7 +182,7 @@
                         </li>
 
                         {{-- PROVEEDORES --}}
-                        <li class="nav-devider"></li>
+                        {{-- <li class="nav-devider"></li>
                         <li>
                             <a href="#proveedor" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">PROVEEDORES</span></a>
                             <ul class="collapse list-unstyled" id="proveedor">
@@ -196,7 +196,7 @@
                                     <a href="{{route('supplier.list')}}">EDITAR PROVEEDOR</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                         {{-- PRODUCTOS --}}
                         <li class="nav-devider"></li>
@@ -238,10 +238,21 @@
                             <a href="#compras" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">COMPRAS</span></a>
                             <ul class="collapse list-unstyled" id="compras">
                                 <li>
-                                    <a href="#">REGISTRAR COMPRA</a>
+                                    <a href="{{route('entrada.index')}}">INGRESOS</a>
                                 </li>
                                 <li>
-                                    <a href="#">EDITAR COMPRA</a>
+                                    <a href="#proveedor" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="hide-menu">PROVEEDORES</span></a>
+                                    <ul class="collapse list-unstyled" id="proveedor">
+                                        <li>
+                                            <a href="{{route('supplier.index')}}">LISTA PROVEEDORES</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('supplier.create')}}">NUEVO PROVEEDOR</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('supplier.list')}}">EDITAR PROVEEDOR</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </li>
