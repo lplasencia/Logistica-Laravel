@@ -15,9 +15,4 @@ class ComprobanteController extends Controller
     {
         return view('venta.comprobante.create');
     }
-
-    public function cindex()
-    {
-        return view('venta.comprobante.configuracion.index');
-    }
 }

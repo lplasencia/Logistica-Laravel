@@ -165,7 +165,7 @@
                         </li>
 
                         {{-- CLIENTES --}}
-                        <li class="nav-devider"></li>
+                        {{-- <li class="nav-devider"></li>
                         <li>
                             <a href="#cliente" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">CLIENTES</span></a>
                             <ul class="collapse list-unstyled" id="cliente">
@@ -179,7 +179,7 @@
                                     <a href="{{route('customer.list')}}">EDITAR CLIENTE</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                         {{-- PROVEEDORES --}}
                         {{-- <li class="nav-devider"></li>
@@ -269,8 +269,23 @@
                                     <a href="#">EDITAR VENTA</a>
                                 </li>
                                 <li>
+                                    <a href="#cliente" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="hide-menu">CLIENTES</span></a>
+                                    <ul class="collapse list-unstyled" id="cliente">
+                                        <li>
+                                            <a href="{{route('customer.index')}}">LISTA CLIENTES</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('customer.create')}}">NUEVO CLIENTE</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('customer.list')}}">EDITAR CLIENTE</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
                                     <a href="{{route('comprobante.index')}}">CONFIG. COMPROBANTE</a>
                                 </li>
+                                
                             </ul>
                         </li>
 
