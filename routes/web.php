@@ -105,5 +105,11 @@ Route::get(('cancelarEntrada'), function(){
     return redirect()->route('home')->with('datos', 'Acción Cancelada');
 })->name('cancelarEntrada');
 
+//Venta
 
+Route::get('venta/salida/index','VentaController@index')->name('venta.index');
 
+//Pedido
+
+Route::get('venta/pedido/index','PedidoController@index')->name('pedido.index');
+Route::get('venta/pedido/create','PedidoController@create')->name('pedido.create');
