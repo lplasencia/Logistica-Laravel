@@ -70,6 +70,7 @@ Route::get('EncontrarProducto/{id}','InventaryController@encontrarProducto');
 
 Route::get('mantenimiento/empleado/index','EmployeeController@index')->name('empleado.index');
 Route::get('mantenimiento/empleado/create','EmployeeController@create')->name('empleado.create');
+Route::post('mantenimiento/empleado/store','EmployeeController@store')->name('empleado.store');
 Route::get(('cancelarEmpleado'), function(){
     return redirect()->route('empleado.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarEmpleado');
@@ -78,6 +79,7 @@ Route::get(('cancelarEmpleado'), function(){
 
 Route::get('mantenimiento/usuario/index','UserController@index')->name('usuario.index');
 Route::get('mantenimiento/usuario/create','UserController@create')->name('usuario.create');
+Route::post('mantenimiento/usuario/store','UserController@store')->name('usuario.store');
 Route::get(('cancelarUsuario'), function(){
     return redirect()->route('usuario.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarUsuario');

@@ -26,7 +26,7 @@
         <div class="row" style="justify-content: center">
             <div class="col-lg-12 responsive-md-100">
                 <div class="card card-outline-info">
-                    <form method="POST" action="{{-- {{ route('customer.store') }} --}}">
+                    <form method="POST" action="{{ route('usuario.store') }}">
                         <div class="card-header">
                             <h4 class="m-b-0 text-white">I. DATOS GENERALES</h4>
                         </div>
@@ -45,20 +45,29 @@
                                     <div class="col-md-3">
                                         <div class="row">
                                             <label for="">Trabajador : </label>
-                                            <select style="width: 100%" class="form-select" aria-label="Default select example">
-                                                <option selected>--Seleccione el Trabajador--</option>
+                                            <select style="width: 100%" name="empleado" class="form-select @error('empleado') is-invalid @enderror" aria-label="Default select example">
+                                                <option value="" selected>--Seleccione el Trabajador--</option>
+                                                @foreach($empleado as $item)
+                                                    <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                                @endforeach
                                             </select>
+                                            @error('empleado')
+                                                <div class="form-control-feedback" style="color:red">{{ $message }}</div>
+                                            @enderror
                                         </div>  
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-3">
                                         <div class="row">
                                             <label for="">Tipo de Usuario : </label>
-                                            <select style="width: 100%" class="form-select" aria-label="Default select example">
-                                                <option selected>-- Seleccione Tipo --</option>
-                                                <option value="1">Administrador</option>
-                                                <option value="2">Empleado</option>
+                                            <select style="width: 100%" name="tipo" class="form-select @error('tipo') is-invalid @enderror" aria-label="Default select example">
+                                                <option value="" selected>-- Seleccione Tipo --</option>
+                                                <option value="Administrador">Administrador</option>
+                                                <option value="Empleado">Empleado</option>
                                             </select>
+                                            @error('tipo')
+                                                <div class="form-control-feedback" style="color:red">{{ $message }}</div>
+                                            @enderror
                                         </div>    
                                     </div>
                                 </div>
