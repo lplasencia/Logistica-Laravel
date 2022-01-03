@@ -56,12 +56,10 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="offset-sm-5">
                             <a type="button" href="{{ route('cancelarComprobante') }}" class="btn btn-danger btn">Cancelar</a>
                             <button type="submit" class="btn btn-info btn"> <i class="fa fa-check"></i> Guardar</button>
-                        </div>
-
+                        </div>    
                 </div>
                 </form>
             </div>

@@ -88,6 +88,7 @@ Route::get(('cancelarUsuario'), function(){
 
 Route::get('mantenimiento/documento/index','DocumentController@index')->name('documento.index');
 Route::get('mantenimiento/documento/create','DocumentController@create')->name('documento.create');
+Route::post('mantenimiento/documento/store','DocumentController@store')->name('documento.store');
 Route::get(('cancelarDocumento'), function(){
     return redirect()->route('documento.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarDocumento');
@@ -96,6 +97,7 @@ Route::get(('cancelarDocumento'), function(){
 
 Route::get('venta/comprobante/index','ComprobanteController@index')->name('comprobante.index');
 Route::get('venta/comprobante/create','ComprobanteController@create')->name('comprobante.create');
+Route::post('venta/comprobante/store','ComprobanteController@store')->name('comprobante.store');
 Route::get(('cancelarComprobante'), function(){
     return redirect()->route('comprobante.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarComprobante');
