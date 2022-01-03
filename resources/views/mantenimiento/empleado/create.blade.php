@@ -26,7 +26,7 @@
         <div class="row" style="justify-content: center">
             <div class="col-lg-12 responsive-md-100">
                 <div class="card card-outline-info">
-                    <form method="POST" action="{{-- {{ route('customer.store') }} --}}">
+                    <form method="POST" action="{{ route('empleado.store') }}">
                         <div class="card-header">
                             <h4 class="m-b-0 text-white">I. DATOS GENERALES</h4>
                         </div>
