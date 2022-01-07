@@ -32,8 +32,8 @@ class ProductController extends Controller
         $data = request()->validate([
             'nombre' => 'required|max:60',
             'descripcion' => 'required|max:120',
-            'precio_compra'=>'required|numeric|regex:/^[\d]{0,11}(\.[\d]{1,2})?$/',
-            'precio_venta'=>'required|numeric|regex:/^[\d]{0,11}(\.[\d]{1,2})?$/',
+            /* 'precio_compra'=>'required|numeric|regex:/^[\d]{0,11}(\.[\d]{1,2})?$/',
+            'precio_venta'=>'required|numeric|regex:/^[\d]{0,11}(\.[\d]{1,2})?$/', */
             'unidad' => 'required',
             'categoria' => 'required',
         ],
@@ -42,20 +42,17 @@ class ProductController extends Controller
             'nombre.max' => 'Ingrese solo 60 caracteres',
             'descripcion.required' => 'Ingrese el nombre',
             'descripcion.max' => 'Ingrese menos de 120 caracteres',
-            'precio_compra.required' => 'Ingrese el precio de compra',
+            /* 'precio_compra.required' => 'Ingrese el precio de compra',
             'precio_compra.regex' => 'Ingrese un entero o decimal',
             'precio_venta.required' => 'Ingrese el precio de venta',
-            'precio_venta.regex' => 'Ingrese un entero o decimal',
+            'precio_venta.regex' => 'Ingrese un entero o decimal', */
             'unidad.required' => 'Ingrese el email',
             'categoria.required' => 'Ingrese el email'
         ]);
 
         $product = new Product();
-        $product->company_id = 1;
         $product->nombre = $request->nombre;
         $product->descripcion = $request->descripcion;
-        $product->precio_compra = $request->precio_compra;
-        $product->precio_venta = $request->precio_venta;
         $product->unit_id = $request->unidad;
         $product->category_id = $request->categoria;
         $product->save();
@@ -82,8 +79,6 @@ class ProductController extends Controller
         $data = request()->validate([
             'nombre' => 'required|max:60',
             'descripcion' => 'required|max:120',
-            'precio_compra'=>'required|numeric|regex:/^[\d]{0,11}(\.[\d]{1,2})?$/',
-            'precio_venta'=>'required|numeric|regex:/^[\d]{0,11}(\.[\d]{1,2})?$/',
             'unidad' => 'required',
             'categoria' => 'required',
         ],
@@ -92,20 +87,13 @@ class ProductController extends Controller
             'nombre.max' => 'Ingrese solo 60 caracteres',
             'descripcion.required' => 'Ingrese el nombre',
             'descripcion.max' => 'Ingrese menos de 120 caracteres',
-            'precio_compra.required' => 'Ingrese el precio de compra',
-            'precio_compra.regex' => 'Ingrese un entero o decimal',
-            'precio_venta.required' => 'Ingrese el precio de venta',
-            'precio_venta.regex' => 'Ingrese un entero o decimal',
             'unidad.required' => 'Ingrese el email',
             'categoria.required' => 'Ingrese el email'
         ]);
 
         $product = Product::findOrFail($id);
-        $product->company_id = 1;
         $product->nombre = $request->nombre;
         $product->descripcion = $request->descripcion;
-        $product->precio_compra = $request->precio_compra;
-        $product->precio_venta = $request->precio_venta;
         $product->unit_id = $request->unidad;
         $product->category_id = $request->categoria;
         $product->save();

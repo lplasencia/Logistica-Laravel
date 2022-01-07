@@ -63,30 +63,6 @@
 
                                     <div class="col-md-9">
                                         <div class="form-group row">
-                                            <label class="control-label text-left col-md-3" for="precio_compra">Precio de Compra:</label>
-                                            <div class="col-md-7">
-                                                <input type="text" id="precio_compra" name="precio_compra" class="form-control input-sm @error('precio_compra') is-invalid @enderror">
-                                                @error('precio_compra')
-                                                <div class="form-control-feedback" style="color:red">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-9">
-                                        <div class="form-group row">
-                                            <label class="control-label text-left col-md-3" for="precio_venta">Precio de Venta:</label>
-                                            <div class="col-md-7">
-                                                <input type="text" id="precio_venta" name="precio_venta" class="form-control input-sm @error('precio_venta') is-invalid @enderror">
-                                                @error('precio_venta')
-                                                <div class="form-control-feedback" style="color:red">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-9">
-                                        <div class="form-group row">
                                             <label class="control-label text-left col-md-3" for="unidad">Unidad de medida :</label>
                                             <div class="col-md-7">
                                                 <select  id="unidad" name="unidad" class="select-css">
