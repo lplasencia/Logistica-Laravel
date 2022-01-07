@@ -26,7 +26,7 @@
         <div class="row" style="justify-content: center">
             <div class="col-lg-12 responsive-md-100">
                 <div class="card card-outline-info">
-                    <form method="POST" action="{{-- {{ route('customer.store') }} --}}">
+                    <form method="POST" action="{{ route('comprobante.store') }}">
                         <div class="card-header">
                             <h4 class="m-b-0 text-white">I. DATOS GENERALES</h4>
                         </div>
@@ -37,21 +37,33 @@
                                 <div class="row">
                                     <div class="col-md-5">
                                         <label for="">Nombre del Documento : </label>
-                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                            <option selected>-- Seleccione Tipo Documento --</option>
+                                        <select name="tipo" class="form-select form-select-sm @error('tipo') is-invalid @enderror" aria-label=".form-select-sm example">
+                                            <option value="" selected>-- Seleccione Tipo Documento --</option>
+                                            @foreach($documento as $item)
+                                                <option value="{{$item->id}}" >{{$item->nombre}}</option>
+                                            @endforeach
                                         </select>
+                                        @error('tipo')
+                                            <div class="form-control-feedback" style="color:red">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row" style="height: 30px"></div>
                                 <div class="row">
                                     <div class="col-md-5">
                                         <label for="">Serie : </label>
-                                        <input type="text" id="serie" name="serie" class="form-control">
+                                        <input type="text" id="serie" name="serie" class="form-control @error('serie') is-invalid @enderror">
+                                        @error('serie')
+                                            <div class="form-control-feedback" style="color:red">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-5">
                                         <label for="">Número : </label>
-                                        <input type="text" id="numero" name="numero" class="form-control">
+                                        <input type="text" id="numero" name="numero" class="form-control @error('numero') is-invalid @enderror">
+                                        @error('numero')
+                                            <div class="form-control-feedback" style="color:red">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

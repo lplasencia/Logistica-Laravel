@@ -49,22 +49,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            {{-- @foreach($employee as $item)
+                            @foreach($tipo as $item)
                             <tr>
                                 <th scope="row" style="color: black; text-align: center">{{ $item->id }}</th>
-                                <td>{{ $item->nombre }}</td>
-                                <td>{{ $item->dni }}</td>
-                                <td>{{ $item->direccion }}</td>
-                                <td>{{ $item->telefono }}</td>
-                                <td>{{ $item->email }}</td>
-                                <td>{{ $item->fecha_nac }}</td>
+                                <td>{{ $item->document_type->nombre }}</td>
+                                <td>{{ $item->ultima_serie }}</td>
+                                <td>{{ $item->ultimo_numero }}</td>
                                 <td style="text-align:center">
-                                    <a href=""><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a>
                                     <a href="#" data-toggle="modal" data-target="#Eliminar" data-id="{{$item['empresa_id']}}"><i class="fas fa-trash-alt fa-fw" style="color:#3084D7; font-size: 20px;"></i></a>
                                 </td>
                             </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
