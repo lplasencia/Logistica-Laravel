@@ -105,6 +105,7 @@ Route::get(('cancelarComprobante'), function(){
 //Entrada
 
 Route::get('compra/entrada/index','EntradaController@index')->name('entrada.index');
+Route::post('compra/entrada/store','EntradaController@store')->name('entrada.store');
 Route::get(('cancelarEntrada'), function(){
     return redirect()->route('home')->with('datos', 'Acción Cancelada');
 })->name('cancelarEntrada');
