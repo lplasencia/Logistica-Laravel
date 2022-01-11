@@ -125,6 +125,7 @@
                             <button type="submit" class="btn btn-info btn"> <i class="fa fa-check"></i> Guardar</button>
                         </div>
 
+                        <input  type="text" id="stock" name="stock" class="form-control" hidden>
 
                     </form>
                 </div>
@@ -168,7 +169,8 @@
         producto_id=$("#producto_id").val();             
         $.get('/EncontrarProducto/'+producto_id, function(data){
             $('input[name=producto_id]').val(data.product_id);                   
-            $('input[name=precio]').val(data.precio_venta);     
+            $('input[name=precio]').val(data.precio_venta);
+            $('input[name=stock]').val(data.stock_actual);  
         });
     }
 
@@ -191,7 +193,8 @@
             mostrarMensajeError("Por favor seleccione el producto");    
             return false;   
         }     
-        let cantidad=$("#cantidad").val();       
+        let cantidad=$("#cantidad").val();   
+        let stock= $("#stock").val();      
         if (cantidad=='' || Number(cantidad)==0 || cantidad==null)
         {
             mostrarMensajeError("Por favor ingrese cantidad del producto");    
@@ -202,7 +205,11 @@
             mostrarMensajeError("Por favor debe escribir cantidad del producto mayor a 0");    
             return false;
         }  
-
+        if (Number(cantidad)>Number(stock))
+        {
+            mostrarMensajeError("No se tiene tal cantidad de producto solo hay " + stock);    
+            return false;
+        }
         pventa=$("#precio").val();
         if (pventa=='' || pventa==0)
         {
