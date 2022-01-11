@@ -64,7 +64,6 @@ Route::get(('cancelarProduct'), function(){
 
 Route::get('inventory/entrada/index','InventaryController@entrada')->name('entrada.index');
 Route::get('inventory/salida/index','InventaryController@salida')->name('salida.index');
-Route::get('EncontrarProducto/{id}','InventaryController@encontrarProducto');
 
 //Employee
 
@@ -113,6 +112,7 @@ Route::get(('cancelarEntrada'), function(){
 //Venta
 
 Route::get('venta/salida/index','VentaController@index')->name('venta.index');
+Route::get('EncontrarProducto/{id}','VentaController@encontrarProducto');
 
 //Pedido
 

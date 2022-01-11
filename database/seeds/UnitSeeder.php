@@ -13,11 +13,15 @@ class UnitSeeder extends Seeder
     public function run()
     {
         $unit = new Unit();
-        $unit->descripcion = 'Vidrio';
+        $unit->descripcion = 'Metro cuadrado';
         $unit->save();
 
         $unit = new Unit();
-        $unit->descripcion = 'Vidrio';
+        $unit->descripcion = 'Metro';
+        $unit->save();
+
+        $unit = new Unit();
+        $unit->descripcion = 'kilogramo';
         $unit->save();
     }
 }
