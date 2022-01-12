@@ -112,7 +112,11 @@ Route::get(('cancelarEntrada'), function(){
 //Venta
 
 Route::get('venta/salida/index','VentaController@index')->name('venta.index');
+Route::get('venta/salida/create/{igv}/{total}/{id}/{subtotal}','VentaController@create')->name('venta.create');
+Route::post('venta/salida/store','VentaController@store')->name('venta.store');
+Route::post('venta/salida/save','VentaController@save')->name('venta.save');
 Route::get('EncontrarProducto/{id}','VentaController@encontrarProducto');
+Route::get('EncontrarInfo/{id}','VentaController@encontrarInfo');
 
 //Pedido
 

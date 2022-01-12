@@ -27,19 +27,22 @@
             <div class="col-lg-12 responsive-md-100">
                 <div class="card card-outline-info">
                     <div class="alert  hidden" role="alert"></div>
-                    <form method="POST" action="{{-- {{ route('customer.store') }} --}}">
+                    <form method="POST" action="{{ route('venta.store') }}">
                         <div class="card-body" style="padding-top: 2%; padding-bottom: 2%; padding-left: 5%">
                             @csrf
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <label for="">Cliente : </label>
-                                        <select name="cliente" id="cliente" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <select name="cliente" id="cliente" class="form-select form-select-sm @error('cliente') is-invalid @enderror" aria-label=".form-select-sm example">
                                             <option value="" selected>-- Seleccione Cliente --</option>
                                             @foreach($cliente as $item)
                                                 <option value="{{$item->id}}">{{$item->nombre}}</option>
                                             @endforeach
                                         </select>
+                                        @error('cliente')
+                                            <div class="form-control-feedback" style="color:red">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-3">
                                         <label for="">Impuesto : </label>
