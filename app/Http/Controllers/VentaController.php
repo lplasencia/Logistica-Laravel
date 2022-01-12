@@ -13,7 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Company_Document_Detail;
 use DB;
-use App\Sales;
+use App\Sale;
 
 class VentaController extends Controller
 {
@@ -111,12 +111,72 @@ class VentaController extends Controller
 
     public function save(Request $request)
     {
-        //Registrar Venta
+        //Falta Validar :'v 
 
+
+        //La fecha actual
+        $date = Carbon::now();
+        $date = $date->format('Y-m-d');
+
+        //Traer al usuario
+        $user = Auth::user();
+
+        //Registrar Venta
+        $venta = new Sale();
+        $venta->tipo_venta = $request->tipo_venta;
+        if($request->tipo_comprobante == 1)
+        {
+            $venta->tipo_comprobante = "Boleta";
+        }
+        else
+        {
+            $venta->tipo_comprobante = "Factura";
+        }
+        $venta->serie_comprobante = $request->serie;
+        $venta->num_comprobante = $request->numero;
+        $venta->fecha = $date;
+        $venta->impuesto = $request->igv;
+        $venta->total = $request->total;
+        $venta->estado = "Aceptado";
+        $venta->order_id = $request->order_id;
+        $venta->user_id = $user->id;
+        $venta->save();
 
         //Cambiar el número final del comprobante
 
-        return $request;
+        $numero = "";
+
+        if($request->numero%10 < 9)
+        {
+            $valor = $request->numero + 0; // para quitar los ceros de delante
+            $tam = strlen($valor);
+            for($i = 0; $i<6 - $tam  ; $i++)
+            {
+                $numero = $numero."0";
+            }
+            $valor++;
+            $numero = $numero.$valor;
+        }
+        else
+        {
+            $valor = $request->numero + 0; // para quitar los ceros de delante
+            $tam = strlen($valor);
+            $tam++;
+            for($i = 0; $i<6 - $tam ; $i++)
+            {
+                $numero = $numero."0";
+            }
+            $valor++;
+            $numero = $numero.$valor;
+        }
+
+        $tabla = DB::update(
+            "UPDATE company_document_details
+                SET ultimo_numero=$numero WHERE document_type_id=$request->tipo_comprobante"
+        );
+
+
+        return redirect()->route('home')->with('datos', 'Venta Registrado Satisfactoriamente');
     }
 
 
