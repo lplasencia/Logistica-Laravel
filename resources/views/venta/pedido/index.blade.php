@@ -50,21 +50,21 @@
                         </thead>
                         <tbody>
                             
-                            {{-- @foreach($employee as $item)
+                            @foreach($pedido as $item)
                             <tr>
                                 <th scope="row" style="color: black; text-align: center">{{ $item->id }}</th>
-                                <td>{{ $item->nombre }}</td>
-                                <td>{{ $item->dni }}</td>
-                                <td>{{ $item->direccion }}</td>
-                                <td>{{ $item->telefono }}</td>
-                                <td>{{ $item->email }}</td>
-                                <td>{{ $item->fecha_nac }}</td>
+                                <td style="text-align: center">{{ $item->nombre }}</td>
+                                <td style="text-align: center">{{ $item->tipo_pedido }}</td>
+                                <td style="text-align: center"> {{ $item->fecha }}</td>
+                                @php
+                                    $item->total
+                                @endphp
                                 <td style="text-align:center">
-                                    <a href="{{route('empresa.edit', $item->empresa->empresa_id)}}"><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a>
-                                    <a href="#" data-toggle="modal" data-target="#Eliminar" data-id="{{$item['empresa_id']}}"><i class="fas fa-trash-alt fa-fw" style="color:#3084D7; font-size: 20px;"></i></a>
+                                    {{-- <a href="{{route('venta.create',$igv,$total,$item->id,$subtotal)}}"><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a> --}}
+                                    <a href="#" data-toggle="modal" data-target="#Eliminar" data-id=""><i class="fas fa-trash-alt fa-fw" style="color:#3084D7; font-size: 20px;"></i></a>
                                 </td>
                             </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
