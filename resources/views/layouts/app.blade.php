@@ -263,7 +263,7 @@
                             <a href="#ventas" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">VENTAS</span></a>
                             <ul class="collapse list-unstyled" id="ventas">
                                 <li>
-                                    <a href="{{route('venta.index')}}">VENTA</a>
+                                    <a href="{{route('venta.list')}}">VENTA</a>
                                 </li>
                                 <li>
                                     <a href="{{route('pedido.index')}}">PEDIDO</a>

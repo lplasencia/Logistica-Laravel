@@ -6,12 +6,12 @@
 <!-- Bread crumb -->
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h3 class="text-primary">PEDIDOS</h3>
+        <h3 class="text-primary">VENTAS</h3>
     </div>
     <div class="col-md-7 align-self-center">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('pedido.index') }}">Pedidos</a></li>
-            <li class="breadcrumb-item active">Lista de Pedidos</li>
+            <li class="breadcrumb-item"><a href="{{ route('venta.list') }}">Ventas</a></li>
+            <li class="breadcrumb-item active">Lista de Ventas</li>
         </ol>
     </div>
 </div>
@@ -34,31 +34,32 @@
 
             <div class="card-body">
                 <div>
-                    <h2 style="float: left">Pedidos</h2>
-                    <a href="{{ route('pedido.create') }}" type="button" class="btn btn-info m-b-10 m-l-5" style="float: right">Nuevo Pedido</a>
+                    <h2 style="float: left">Ventas</h2>
+                    <a href="{{ route('venta.index') }}" type="button" class="btn btn-info m-b-10 m-l-5" style="float: right">Nueva Venta</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover " id="myTable">
                         <thead style="background: #1976D2; color:white; opacity: 0.9">
                             <tr>
                                 <th>N°</th>
-                                <th>Cliente</th>
-                                <th>Tipo Pedido</th>
+                                <th>Tipo de Venta</th>
+                                <th>Serie</th>
+                                <th>Número</th>
                                 <th>Fecha</th>
                                 <th style="text-align:center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             
-                            @foreach($pedido as $item)
+                            @foreach($venta as $item)
                             <tr>
                                 <th scope="row" style="color: black; text-align: center">{{ $item->id }}</th>
-                                <td style="text-align: center">{{ $item->nombre }}</td>
-                                <td style="text-align: center">{{ $item->tipo_pedido }}</td>
+                                <td style="text-align: center">{{ $item->tipo_venta }}</td>
+                                <td style="text-align: center">{{ $item->serie_comprobante }}</td>
+                                <td style="text-align: center">{{ $item->num_comprobante }}</td>
                                 <td style="text-align: center"> {{ $item->fecha }}</td>
                                 <td style="text-align:center">
-                                  <a href="{{route('venta.create',$item->id)}}"><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a>
-                                  <a href="#" data-toggle="modal" data-target="#Eliminar" data-id=""><i class="fas fa-trash-alt fa-fw" style="color:#3084D7; font-size: 20px;"></i></a>
+                                  <a href="{{route('venta.pdf',$item->id)}}"><i class="fas fa-file-pdf" style="color:#3084D7; font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endforeach

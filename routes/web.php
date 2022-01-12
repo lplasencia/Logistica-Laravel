@@ -111,10 +111,12 @@ Route::get(('cancelarEntrada'), function(){
 
 //Venta
 
+Route::get('venta/pedido/list','VentaController@list')->name('venta.list');
 Route::get('venta/salida/index','VentaController@index')->name('venta.index');
 Route::get('venta/salida/create/{id}','VentaController@create')->name('venta.create');
 Route::post('venta/salida/store','VentaController@store')->name('venta.store');
 Route::post('venta/salida/save','VentaController@save')->name('venta.save');
+Route::get('venta/pdf/{id}','VentaController@pdf')->name('venta.pdf');
 Route::get('EncontrarProducto/{id}','VentaController@encontrarProducto');
 Route::get('EncontrarInfo/{id}','VentaController@encontrarInfo');
 
@@ -123,3 +125,6 @@ Route::get('EncontrarInfo/{id}','VentaController@encontrarInfo');
 Route::get('venta/pedido/index','PedidoController@index')->name('pedido.index');
 Route::get('venta/pedido/create','PedidoController@create')->name('pedido.create');
 Route::post('venta/pedido/store','PedidoController@store')->name('pedido.store');
+
+
+

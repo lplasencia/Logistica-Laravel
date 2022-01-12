@@ -14,9 +14,16 @@ use Illuminate\Support\Facades\Auth;
 use App\Company_Document_Detail;
 use DB;
 use App\Sale;
+use PDF;
 
 class VentaController extends Controller
 {
+    public function list()
+    {
+        $venta = Sale::get();
+        return view('venta.salida.list',compact('venta'));
+    }
+
     public function index()
     {
         $cliente = Customer::get();
@@ -198,10 +205,54 @@ class VentaController extends Controller
                 SET tipo_pedido='Proforma' WHERE id=$request->order_id"
         );
 
-        return redirect()->route('home')->with('datos', 'Venta Registrado Satisfactoriamente');
+        return redirect()->route('venta.list')->with('datos', 'Venta Registrado Satisfactoriamente');
     }
 
+    //Recibe el id de la venta
+    public function pdf($id)
+    {
+        //Debe enviar fecha, cliente, direccion del cliente, nro comprobante, detalles
+        $info = DB::select(
+            "SELECT cu.nombre, cu.direccion, s.fecha, s.num_comprobante FROM sales s
+            INNER JOIN orders o
+            ON s.order_id = o.id
+            INNER JOIN customers cu
+            ON o.customer_id = cu.id
+            WHERE s.id = $id"
+        );
 
+        $detalle = DB::select(
+            "SELECT od.precio_venta, od.cantidad, p.nombre, (od.precio_venta * od.cantidad) as 'importe'  FROM sales s
+            INNER JOIN orders o
+            ON s.order_id = o.id
+            INNER JOIN order_details od
+            ON o.id = od.order_id
+            INNER JOIN entry_details ed
+            ON od.entry_detail_id = ed.id
+            INNER JOIN products p
+            ON ed.product_id = p.id
+            WHERE s.id = $id"
+        );
+
+        $total = DB::select(
+            "SELECT SUM(od.precio_venta * od.cantidad) as 'total'  FROM sales s
+            INNER JOIN orders o
+            ON s.order_id = o.id
+            INNER JOIN order_details od
+            ON o.id = od.order_id
+            WHERE s.id = $id"
+        );
+
+        $venta = Sale::get();
+
+        // $pdf = PDF::loadView('venta.salida.list', compact('venta'));
+        // return $pdf->download('invoice.pdf');
+
+        // $pdf = PDF::loadView('pdf.comprobante',compact('info'));
+        // return $pdf->stream();
+
+        return view('pdf.comprobante',compact('info','detalle','total'));
+    }
 
     public function encontrarProducto($id)
     {
