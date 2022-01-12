@@ -76,17 +76,13 @@ class VentaController extends Controller
             $aux->save();
         }
 
-        //Variables que se van a enviar por la ruta
-        $igv = $request->igv;
-        $subtotal = $request->subtotal;
-        $total = $request->total;
         $id = $pedido->id;
 
-        return redirect()->route('venta.create',compact('igv','total','id','subtotal'))->with('datos', 'Entrada Registrado Satisfactoriamente');
+        return redirect()->route('venta.create',compact('id'))->with('datos', 'Entrada Registrado Satisfactoriamente');
     }
 
-    //Recibe el igv, total y id del pedido
-    public function create($igv,$total,$id,$subtotal)
+    //Recibe el id del pedido
+    public function create($id)
     {
 
         //Traer al cliente
@@ -96,9 +92,11 @@ class VentaController extends Controller
         //Traer el impuesto de la tabla Multitable
         $multitable = Multitable::get();
 
+        $impuesto = $multitable[0]->porcentaje_impuesto;
+
         //Traer los detalles del pedido --- Codigo , Producto , Precio , Cantidad
         $tabla = DB::select(
-            "SELECT p.id, p.nombre, o.precio_venta, o.cantidad  FROM order_details o
+            "SELECT p.id, p.nombre, o.precio_venta, o.cantidad   FROM order_details o
                 INNER JOIN entry_details e
                 ON o.entry_detail_id = e.id
                 INNER JOIN products p
@@ -106,8 +104,22 @@ class VentaController extends Controller
                 WHERE o.order_id = $id"
         );
 
+        $pedido = DB::select(
+            "SELECT o.id, c.nombre, o.tipo_pedido, o.fecha, 
+                ROUND(( SELECT SUM(d.precio_venta * d.cantidad)),2) as 'subtotal', 
+                ROUND(( SELECT SUM(d.precio_venta * d.cantidad)) * $impuesto , 2) as 'igv',
+                ROUND(( SELECT SUM(d.precio_venta * d.cantidad)) * $impuesto + ( SELECT SUM(d.precio_venta * d.cantidad)),2) as 'total'
+                    FROM orders o
+                INNER JOIN order_details d
+                ON o.id = d.order_id
+                INNER JOIN customers c
+                ON o.customer_id = c.id
+                WHERE o.id = $id
+                GROUP BY o.id"
+        );
 
-        return view('venta.salida.create',compact('igv','total','cliente','subtotal','multitable','tabla','id'));
+
+        return view('venta.salida.create',compact('cliente','pedido','multitable','tabla','id'));
     }
 
     public function save(Request $request)
@@ -180,6 +192,11 @@ class VentaController extends Controller
                 SET ultimo_numero=$numero WHERE document_type_id=$request->tipo_comprobante"
         );
 
+        //Cambiar el tipo de pedido
+        $tabla = DB::update(
+            "UPDATE orders
+                SET tipo_pedido='Proforma' WHERE id=$request->order_id"
+        );
 
         return redirect()->route('home')->with('datos', 'Venta Registrado Satisfactoriamente');
     }

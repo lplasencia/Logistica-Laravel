@@ -57,11 +57,16 @@
                                 <td style="text-align: center">{{ $item->tipo_pedido }}</td>
                                 <td style="text-align: center"> {{ $item->fecha }}</td>
                                 @php
-                                    $item->total
+                                    $igv = 1;
+                                    $total = 1;
+                                    $igv = 0.18 * $item->total;
+                                    $total = $igv + $item->total;
+                                    $id = 1;
+                                    $subtotal = 1;
                                 @endphp
                                 <td style="text-align:center">
-                                    {{-- <a href="{{route('venta.create',$igv,$total,$item->id,$subtotal)}}"><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a> --}}
-                                    <a href="#" data-toggle="modal" data-target="#Eliminar" data-id=""><i class="fas fa-trash-alt fa-fw" style="color:#3084D7; font-size: 20px;"></i></a>
+                                  <a href="{{route('venta.create',$item->id)}}"><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a>
+                                  <a href="#" data-toggle="modal" data-target="#Eliminar" data-id=""><i class="fas fa-trash-alt fa-fw" style="color:#3084D7; font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endforeach

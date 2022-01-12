@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="">Total : </label>
-                                        <input type="text" id="total" name="total" value="{{$total}}" class="form-control" readonly>
+                                        <input type="text" id="total" name="total" value="{{$pedido[0]->total}}" class="form-control" readonly>
                                     </div>
                                 </div>
                                 <div class="row" style="height: 30px"></div>
@@ -104,19 +104,19 @@
                                             <label for="">Sub Total: </label>
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="text" id="subtotal" name="subtotal" value="{{$subtotal}}" class="form-control" readonly>
+                                            <input type="text" id="subtotal" name="subtotal" value="{{$pedido[0]->subtotal}}" class="form-control" readonly>
                                         </div>
                                         <div class="col-md-1">
                                             <label for="">S/. IGV: </label>
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="text" value="{{$igv}}" class="form-control" readonly>
+                                            <input type="text" value="{{$pedido[0]->igv}}" class="form-control" readonly>
                                         </div>
                                         <div class="col-md-1">
                                             <label for="">S/. Total: </label>
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="text" id="total" name="total" value="{{$total}}" class="form-control" readonly>
+                                            <input type="text" id="total" name="total" value="{{$pedido[0]->total}}" class="form-control" readonly>
                                         </div>
 
                                         <div class="col-md-2">
