@@ -88,6 +88,7 @@ class VentaController extends Controller
     //Recibe el igv, total y id del pedido
     public function create($igv,$total,$id,$subtotal)
     {
+
         //Traer al cliente
         $pedido = Order::findOrFail($id);
         $cliente = Customer::findOrFail($pedido->customer_id);
@@ -111,8 +112,12 @@ class VentaController extends Controller
 
     public function save(Request $request)
     {
-        //Falta Validar :'v 
-
+        $data = request()->validate([
+            'tipo_comprobante' => 'required'
+        ],
+        [
+            'tipo_comprobante.required' => 'Ingrese el Tipo de Comprobante',
+        ]);
 
         //La fecha actual
         $date = Carbon::now();
