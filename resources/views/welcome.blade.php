@@ -79,7 +79,7 @@
                         <div class="col-lg-6 col-sm-6">
                             <div class="home-title text-white">
                                 <h2 class="mb-4">VIDRIERIA ALVA</h2>
-                                <p class="text-white-50 home-desc font-16 mb-5">Gestión Logistica</p>
+                                <p class="text-white-50 home-desc font-16 mb-5">Gestión Comercial</p>
                                 <div class="watch-video mt-5">
                                     @guest
                                     @if(Route::has('register'))
