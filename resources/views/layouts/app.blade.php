@@ -320,7 +320,7 @@
                                     <a href="#">COMPRAS</a>
                                 </li>
                                 <li>
-                                    <a href="#">VENTAS</a>
+                                    <a href="{{route('reporteVenta.index')}}">VENTAS</a>
                                 </li>
                             </ul>
                         </li>
@@ -368,6 +368,7 @@
     <!--stickey kit -->
     <script src="/Plantilla/js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
     <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -421,6 +422,8 @@
     @yield('script1')
 
     @yield('script2')
+
+    @yield('canvas')
 
 </body>
 
