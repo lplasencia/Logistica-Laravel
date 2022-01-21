@@ -26,7 +26,7 @@
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="{{route('pedido.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('pedido.index')}}" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -41,7 +41,7 @@
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="{{route('venta.list')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('venta.list')}}" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -56,7 +56,7 @@
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="{{route('usuario.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('usuario.index')}}" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -66,12 +66,12 @@
             <div class="inner">
               <h3>{{$producto[0]->valor}}</h3>
 
-              <p>Unique Visitors</p>
+              <p>Productos</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="{{route('product.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('product.index')}}" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -122,7 +122,7 @@
 @section('canvas')
 
 <script>
-  cadena = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
+  cadena = ['Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', 'Enero'];
   const ctx = document.getElementById('myChart').getContext('2d');
   const myChart = new Chart(ctx, {
       type: 'bar',
@@ -130,7 +130,7 @@
           labels: cadena,
           datasets: [{
               label: "Ventas",
-              data: [0.5, 3, 3, 5.5, 2.5, 3],
+              data: [10, 8, 9, 12, 11, 5],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',

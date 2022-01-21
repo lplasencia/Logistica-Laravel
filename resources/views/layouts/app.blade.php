@@ -133,12 +133,12 @@
                     <ul class="navbar-nav my-lg-0">
                         <!-- Profile -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#logout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{$user->name}}
                                 <i class="fa fa-user"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right animated slideInRight">
-                                <ul class="dropdown-user">
+                                <ul class="dropdown-user" id="logout">
                                     <li role="separator" class="divider"></li>
                                     <li><a href=""> Perfil</a></li>
                                     <li role="separator" class="divider"></li>
