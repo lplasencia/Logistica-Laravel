@@ -1,0 +1,91 @@
+
+INSERT INTO `vidrieria`.`companies` (`razon_social`, `ruc`, `representante`, `direccion`, `telefono`, `email`) VALUES ('Vidrieria Alva','1018872629','Abel Alva Cruz','Av. España Nro 876','989980850','alva@empresa.com');
+
+INSERT INTO `vidrieria`.`employees` (`nombre`, `dni`, `direccion`, `telefono`, `email`, `fecha_nac`) VALUES ('Manuel Paredes','71233738','Av America Nro 987','932541025','aparedes@gmail.com','2000-02-01');
+INSERT INTO `vidrieria`.`employees` (`nombre`, `dni`, `direccion`, `telefono`, `email`, `fecha_nac`) VALUES ('Diego','14563241','Los rosales Nro 134','924712369','lplasencia@gmail.com','1999-02-06');
+INSERT INTO `vidrieria`.`employees` (`nombre`, `dni`, `direccion`, `telefono`, `email`, `fecha_nac`) VALUES ('Maria Vargas','14895778','Francisco de Zela Nro 987','987458789','avargas@gmail.com','1996-04-04');
+INSERT INTO `vidrieria`.`employees` (`nombre`, `dni`, `direccion`, `telefono`, `email`, `fecha_nac`) VALUES ('Juan Acosta','47891478','Av los paujiles Nro 987','987414789','juana@gmail.com','1998-06-09');
+INSERT INTO `vidrieria`.`employees` (`nombre`, `dni`, `direccion`, `telefono`, `email`, `fecha_nac`) VALUES ('Miguel Francis','14857415','Calle los jasmines Nro 765','925874159','miguelx@gmail.com','1994-05-09');
+INSERT INTO `vidrieria`.`employees` (`nombre`, `dni`, `direccion`, `telefono`, `email`, `fecha_nac`) VALUES ('Luis Torres','14785236','Calle romanos Nro 543','954715980','luistorr@gmail.com','1995-05-07');
+INSERT INTO `vidrieria`.`employees` (`nombre`, `dni`, `direccion`, `telefono`, `email`, `fecha_nac`) VALUES ('Laura Gonzales','16897458','Calle los pardos Nro 986','903645125','laurax@gmail.com','1997-09-11');
+INSERT INTO `vidrieria`.`employees` (`nombre`, `dni`, `direccion`, `telefono`, `email`, `fecha_nac`) VALUES ('Sara Salinas','16851265','Calle los jueces Nro 765','957897145','saras@gmail.com','1999-06-07');
+INSERT INTO `vidrieria`.`employees` (`nombre`, `dni`, `direccion`, `telefono`, `email`, `fecha_nac`) VALUES ('Carlos Juarez','16587403','Av Roma Nro 845','970340680','carlosf@gmail.com','2000-12-01');
+INSERT INTO `vidrieria`.`employees` (`nombre`, `dni`, `direccion`, `telefono`, `email`, `fecha_nac`) VALUES ('Diana Beltran','10477414','Av Los Cedros Nro 999','957036100','dianabe@gmail.com','2001-12-12');
+INSERT INTO `vidrieria`.`employees` (`nombre`, `dni`, `direccion`, `telefono`, `email`, `fecha_nac`) VALUES ('Luis Diego Plasencia Amaya','70668041','Av. los heroes','949503135','lplasenciaamaya@gmail.com','1998-09-16');
+
+INSERT INTO `vidrieria`.`users` (`name`, `email`, `password`, `employee_id`, `company_id`, `fecha_registro`, `tipo_usuario`) VALUES ('aparedes','aparedes@admin','12345678',1,1,'2022-01-01','administrador');
+INSERT INTO `vidrieria`.`users` (`name`, `email`, `password`, `employee_id`, `company_id`, `fecha_registro`, `tipo_usuario`) VALUES ('lplasencia','lplasencia@admin','123456',2,1,'2022-01-02','administrador');
+
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Carlo Cruz','Av España Nro 987','987445456','carlocr@gmail.com');
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Jaime Marin','Av El Milagro Nro 876','982565159','jaime@gmail.com');
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Edin Layza','Calle los laureles Nro 765','902545654','adinl@gmail.com');
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Melisa Aburo','Calle Huascar Nro 984','987898789','mel@gmail.com');
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Leslie Vasques','Calle Toribio Nro 654','969415951','lesliev@gmail.com');
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Waldir Alayo','Calle Las Palmeras Nro 432','903659154','wali@gmail.com');
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Claudia Mendez','Calle Junin Nro 665','987848987','cabita@gmail.com');
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Alejandra Trujillo','Jiron Ayacucho Nro 456','971547741','alejandra@gmail.com');
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Clara Benites','Jiron Atahualpa Nro 654','900250410','clarab@gmail.com');
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Yeni Varas','Av. Coronel Nro 987','998788459','yeni@gmail.com');
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Astrid Rocha Amaya','Av. almagro 55','995478563','astrid_15@gmail.com');
+INSERT INTO `vidrieria`.`customers` (`company_id`, `nombre`, `direccion`, `telefono`, `email`) VALUES (1,'Jose Antonio Badia Almanza','Av. lima 85','998645123','jose_15_95@gmail.com');
+
+INSERT INTO `vidrieria`.`categories` (`descripcion`) VALUES ('Vidrio');
+INSERT INTO `vidrieria`.`categories` (`descripcion`) VALUES ('Aluminio');
+INSERT INTO `vidrieria`.`categories` (`descripcion`) VALUES ('Bloque de vidrio');
+
+INSERT INTO `vidrieria`.`units` (`descripcion`) VALUES ('unidad');
+INSERT INTO `vidrieria`.`units` (`descripcion`) VALUES ('pie cuadrado');
+INSERT INTO `vidrieria`.`units` (`descripcion`) VALUES ('Metro cuadrado');
+INSERT INTO `vidrieria`.`units` (`descripcion`) VALUES ('Metro');
+INSERT INTO `vidrieria`.`units` (`descripcion`) VALUES ('kilogramo');
+
+INSERT INTO `vidrieria`.`multitable` (`nombre_impuesto`, `porcentaje_impuesto`, `simbolo_moneda`) VALUES ('IGV',0.18,'s/.');
+
+INSERT INTO `vidrieria`.`suppliers` (`company_id`, `nombre`, `representante`, `ruc`, `direccion`, `telefono`, `email`) VALUES (1,'Vidrios y Aluminios Roca Glass','Juan Roca','1485147895','Avenida Tantamayo Manzana T Lote 03','962574159','roca@gmail.com');
+INSERT INTO `vidrieria`.`suppliers` (`company_id`, `nombre`, `representante`, `ruc`, `direccion`, `telefono`, `email`) VALUES (1,'Vidriería y Servicios Generales Triple Eirl','Miguel Suarez','1025874521','Calle Los Jaspes 125  Urb. Balconcillo La Victoria','978575741','suarezvid@gmail.com');
+INSERT INTO `vidrieria`.`suppliers` (`company_id`, `nombre`, `representante`, `ruc`, `direccion`, `telefono`, `email`) VALUES (1,'Zproyectos Vidrios & Servicios Generales','Alexander Rios','1574128541','Avenida Nicolini 575  Urb. Villa Salud','987414741','riosvid@gmail.com');
+INSERT INTO `vidrieria`.`suppliers` (`company_id`, `nombre`, `representante`, `ruc`, `direccion`, `telefono`, `email`) VALUES (1,'Vidriería & Aluminios Santa Cruz Sac','Celia Cruz','1485204785','Avenida Alameda Sur, Mz b L Bello Horizonte Los Cedros','987441447','cruzvid@gmail.com');
+INSERT INTO `vidrieria`.`suppliers` (`company_id`, `nombre`, `representante`, `ruc`, `direccion`, `telefono`, `email`) VALUES (1,'Vidrios & Aluminios Hgyj E.I.R.L.','Hugo Rodriguez','1478521478','Avenida Naranjal Mz. A Urbanización Residencial Villa Génova','900141741','hgorod@gmail.com');
+INSERT INTO `vidrieria`.`suppliers` (`company_id`, `nombre`, `representante`, `ruc`, `direccion`, `telefono`, `email`) VALUES (1,'Vidriería Hpj Glass Glass','Humberto Velez','1025402587','Avenida Aviación 4488','906987899','humvid@gmail.com');
+INSERT INTO `vidrieria`.`suppliers` (`company_id`, `nombre`, `representante`, `ruc`, `direccion`, `telefono`, `email`) VALUES (1,'Aluminio Vidriería Exito E.I.R.L.','Enrique Mendez','1025412563','Avenida La Paz 1966  Urb. Maranga','932410210','envid@gmail.com');
+INSERT INTO `vidrieria`.`suppliers` (`company_id`, `nombre`, `representante`, `ruc`, `direccion`, `telefono`, `email`) VALUES (1,'Faviglass E.I.R.L.','Fatima Morales','1474102587','Avenida La Universidad Molicentro','902412587','fatvid@gmail.com');
+INSERT INTO `vidrieria`.`suppliers` (`company_id`, `nombre`, `representante`, `ruc`, `direccion`, `telefono`, `email`) VALUES (1,'Sansa Perú S.A.C - Vidriería y Drywall ','Douglas Barbaran','1403218902','Avenida Aviación 846','980274123','douvid@gmail.com');
+INSERT INTO `vidrieria`.`suppliers` (`company_id`, `nombre`, `representante`, `ruc`, `direccion`, `telefono`, `email`) VALUES (1,'Vidrieria Guzman','Javier Luis Lopez Arias','1054256921','Av. esperanza 160','991524102','javier_lopez_20@gmail.com');
+
+INSERT INTO `vidrieria`.`products` (`nombre`, `descripcion`, `unit_id`, `category_id`) VALUES ('Vidrio estirado de 2mm','Vidrio',2,1);
+INSERT INTO `vidrieria`.`products` (`nombre`, `descripcion`, `unit_id`, `category_id`) VALUES ('Vidrio estirado de 3mm','Vidrio',2,1);
+INSERT INTO `vidrieria`.`products` (`nombre`, `descripcion`, `unit_id`, `category_id`) VALUES ('Vidrio estirado de 4mm','Vidrio',2,1);
+INSERT INTO `vidrieria`.`products` (`nombre`, `descripcion`, `unit_id`, `category_id`) VALUES ('Vidrio estirado de 6mm','Vidrio',2,1);
+INSERT INTO `vidrieria`.`products` (`nombre`, `descripcion`, `unit_id`, `category_id`) VALUES ('Vidrio estirado de 8mm','Vidrio',2,1);
+INSERT INTO `vidrieria`.`products` (`nombre`, `descripcion`, `unit_id`, `category_id`) VALUES ('Vidrio laminado de 6mm','Vidrio',2,1);
+INSERT INTO `vidrieria`.`products` (`nombre`, `descripcion`, `unit_id`, `category_id`) VALUES ('Vidrio laminado de 8mm','Vidrio',2,1);
+INSERT INTO `vidrieria`.`products` (`nombre`, `descripcion`, `unit_id`, `category_id`) VALUES ('Vidrio espejo de 2mm','Vidrio',2,1);
+INSERT INTO `vidrieria`.`products` (`nombre`, `descripcion`, `unit_id`, `category_id`) VALUES ('Vidrio espejo de 3mm','Vidrio',2,1);
+INSERT INTO `vidrieria`.`products` (`nombre`, `descripcion`, `unit_id`, `category_id`) VALUES ('Vidrio reflejante de 6mm','Vidrio',2,1);
+INSERT INTO `vidrieria`.`products` (`nombre`, `descripcion`, `unit_id`, `category_id`) VALUES ('Vidrio reflejante de 8mm','Vidrio',2,1);
+
+INSERT INTO `vidrieria`.`document_types` (`nombre`, `operacion`) VALUES ('Boleta','Comprobante');
+INSERT INTO `vidrieria`.`document_types` (`nombre`, `operacion`) VALUES ('Factura','Comprobante');
+INSERT INTO `vidrieria`.`document_types` (`nombre`, `operacion`) VALUES ('Ticket','Comprobante');
+
+INSERT INTO `vidrieria`.`entries` (`tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha`, `impuesto`, `total`, `estado`, `supplier_id`, `company_id`, `user_id`) VALUES ('Boleta','00001','0000001','2020-01-10',270.00,1500.00,'Aceptado',1,1,1);
+INSERT INTO `vidrieria`.`entries` (`tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha`, `impuesto`, `total`, `estado`, `supplier_id`, `company_id`, `user_id`) VALUES ('Boleta','00001','0000002','2020-01-10',270.00,1500.00,'Aceptado',1,1,1);
+INSERT INTO `vidrieria`.`entries` (`tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha`, `impuesto`, `total`, `estado`, `supplier_id`, `company_id`, `user_id`) VALUES ('Boleta','00001','0000003','2021-01-10',270.00,1500.00,'Aceptado',1,1,1);
+INSERT INTO `vidrieria`.`entries` (`tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha`, `impuesto`, `total`, `estado`, `supplier_id`, `company_id`, `user_id`) VALUES ('Boleta','00001','0000004','2021-01-10',270.00,1500.00,'Aceptado',1,1,1);
+INSERT INTO `vidrieria`.`entries` (`tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha`, `impuesto`, `total`, `estado`, `supplier_id`, `company_id`, `user_id`) VALUES ('Boleta','00001','0000005','2022-01-10',360.00,2000.00,'Aceptado',1,1,1);
+
+INSERT INTO `vidrieria`.`entry_details` (`stock_ingreso`, `stock_actual`, `precio_compra`, `precio_venta`, `entry_id`, `product_id`) VALUES (100,100,10.00,15.00,1,1);
+INSERT INTO `vidrieria`.`entry_details` (`stock_ingreso`, `stock_actual`, `precio_compra`, `precio_venta`, `entry_id`, `product_id`) VALUES (100,100,5.00,10.00,1,2);
+
+INSERT INTO `vidrieria`.`entry_details` (`stock_ingreso`, `stock_actual`, `precio_compra`, `precio_venta`, `entry_id`, `product_id`) VALUES (100,100,10.00,15.00,2,3);
+INSERT INTO `vidrieria`.`entry_details` (`stock_ingreso`, `stock_actual`, `precio_compra`, `precio_venta`, `entry_id`, `product_id`) VALUES (100,100,5.00,10.00,2,4);
+
+INSERT INTO `vidrieria`.`entry_details` (`stock_ingreso`, `stock_actual`, `precio_compra`, `precio_venta`, `entry_id`, `product_id`) VALUES (100,100,10.00,15.00,3,5);
+INSERT INTO `vidrieria`.`entry_details` (`stock_ingreso`, `stock_actual`, `precio_compra`, `precio_venta`, `entry_id`, `product_id`) VALUES (100,100,5.00,10.00,3,6);
+
+INSERT INTO `vidrieria`.`entry_details` (`stock_ingreso`, `stock_actual`, `precio_compra`, `precio_venta`, `entry_id`, `product_id`) VALUES (100,100,10.00,15.00,4,7);
+INSERT INTO `vidrieria`.`entry_details` (`stock_ingreso`, `stock_actual`, `precio_compra`, `precio_venta`, `entry_id`, `product_id`) VALUES (100,100,5.00,10.00,4,8);
+
+INSERT INTO `vidrieria`.`entry_details` (`stock_ingreso`, `stock_actual`, `precio_compra`, `precio_venta`, `entry_id`, `product_id`) VALUES (100,100,10.00,15.00,5,9);
+INSERT INTO `vidrieria`.`entry_details` (`stock_ingreso`, `stock_actual`, `precio_compra`, `precio_venta`, `entry_id`, `product_id`) VALUES (100,100,5.00,10.00,5,10);
+INSERT INTO `vidrieria`.`entry_details` (`stock_ingreso`, `stock_actual`, `precio_compra`, `precio_venta`, `entry_id`, `product_id`) VALUES (100,100,5.00,10.00,5,11);
