@@ -257,7 +257,7 @@
                             <a href="#compras" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">COMPRAS</span></a>
                             <ul class="collapse list-unstyled" id="compras">
                                 <li>
-                                    <a href="{{route('entrada.index')}}">INGRESOS</a>
+                                    <a href="{{route('entrada.list')}}">INGRESOS</a>
                                 </li>
                                 <li>
                                     <a href="#proveedor" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="hide-menu">PROVEEDORES</span></a>

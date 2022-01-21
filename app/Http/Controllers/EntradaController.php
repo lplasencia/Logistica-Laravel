@@ -14,6 +14,18 @@ use App\Entry_detail;
 
 class EntradaController extends Controller
 {
+    public function list()
+    {
+        $entrada = Entry::get();
+        return view('compra.entrada.list',compact('entrada'));
+    }
+
+    public function ver($id)
+    {
+        $detalle = Entry_detail::where('entry_id','=',$id)->get();
+        return view('compra.entrada.vista',compact('detalle'));
+    }
+
     public function index()
     {
         $proveedor = Supplier::get();

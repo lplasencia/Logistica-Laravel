@@ -103,6 +103,8 @@ Route::get(('cancelarComprobante'), function(){
 
 //Entrada
 
+Route::get('compra/entrada/list','EntradaController@list')->name('entrada.list');
+Route::get('compra/entrada/vista/{id}','EntradaController@ver')->name('entrada.ver');
 Route::get('compra/entrada/index','EntradaController@index')->name('entrada.index');
 Route::post('compra/entrada/store','EntradaController@store')->name('entrada.store');
 Route::get(('cancelarEntrada'), function(){

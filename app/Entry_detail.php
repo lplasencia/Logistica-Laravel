@@ -13,4 +13,9 @@ class Entry_detail extends Model
         'stock_ingreso','stock_actual', 'precio_compra','precio_venta',
         'entry_id','product_id'
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

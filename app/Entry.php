@@ -13,4 +13,9 @@ class Entry extends Model
         'tipo_comprobante','serie_comprobante', 'num_comprobante','fecha',
         'impuesto','total','estado','supplier_id','company_id','user_id' 
     ];
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
 }
