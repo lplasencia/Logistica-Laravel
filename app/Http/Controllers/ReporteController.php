@@ -26,11 +26,78 @@ class ReporteController extends Controller
         $inicio = $request->inicio;
         $fin = $request->fin;
 
-        $rango = DB::select("SELECT MONTH(fecha) as 'mes' FROM `sales` WHERE fecha BETWEEN $inicio AND '$fin'");
+        // $rango = DB::select("SELECT MONTH(fecha) as 'mes' FROM `sales` WHERE fecha BETWEEN $inicio AND '$fin'");
 
-        
+        $array = ["Enero","Febrero","Marzo","Abril","Mayo","Junio"];
+
+        return view('reporte.ventas.vista',compact('inicio','fin'));
 
         return $rango;
+    }
+    //Recibe las fechas de inicio y fin
+    public function info($ini,$fin)
+    {
+        $valor = DB::select("SELECT MONTH(fecha) as 'mes', SUM(total) as 'total' FROM `sales` 
+        WHERE fecha BETWEEN '$ini' AND '$fin'
+        GROUP BY MONTH(fecha)");
+
+        $meses = [];
+        $totales = [];
+
+        //Transformando numeros de mes en letra
+        foreach($valor as $item)
+        {
+            switch ($item->mes) {
+                case 1:
+                    array_push($meses,"Enero");
+                    break;
+                case 2:
+                    array_push($meses,"Febrero");
+                    break;
+                case 3:
+                    array_push($meses,"Marzo");
+                    break;
+                case 4:
+                    array_push($meses,"Abril");
+                    break; 
+                case 5:
+                    array_push($meses,"Mayo");
+                    break;
+                case 6:
+                    array_push($meses,"Junio");
+                    break; 
+                case 7:
+                    array_push($meses,"Julio");
+                    break;
+                case 8:
+                    array_push($meses,"Agosto");
+                    break;
+                case 9:
+                    array_push($meses,"Septiembre");
+                    break;
+                case 10:
+                    array_push($meses,"Octubre");
+                    break;
+                case 11:
+                    array_push($meses,"Noviembre");
+                    break; 
+                case 12:
+                    array_push($meses,"Diciembre");
+                    break;
+            }
+            
+        }
+
+        //Rellenar el array con los totales
+        foreach($valor as $item)
+        {
+            array_push($totales,$item->total);
+        }
+
+        $array = array_merge($meses,$totales);
+
+        return $array;
+
     }
 
 }

@@ -132,6 +132,7 @@ Route::post('venta/pedido/store','PedidoController@store')->name('pedido.store')
 
 Route::get('reporte/venta/index','ReporteController@index')->name('reporteVenta.index');
 Route::post('reporte/venta/mostrar','ReporteController@mostrar')->name('reporteVenta.mostrar');
+Route::get('reporte/venta/info/{ini}/{fin}','ReporteController@info')->name('reporteVenta.info');
 
 
 
