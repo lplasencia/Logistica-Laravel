@@ -35,7 +35,7 @@
             <div class="card-body">
                 <div>
                     <h2 style="float: left">Ventas Diarias</h2>
-                    <a href="" type="button" class="btn btn-success" style="float: right">PDF</a>
+                    <a href="{{route('reporteventaDiaria.index')}}" type="button" class="btn btn-success" style="float: right">PDF</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover " id="myTable">

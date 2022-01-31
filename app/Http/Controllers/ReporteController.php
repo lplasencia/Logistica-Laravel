@@ -12,6 +12,7 @@ use App\Order;
 use App\Entry_detail;
 use App\Order_Detail;
 use DB;
+use PDF;
 
 class ReporteController extends Controller
 {
@@ -103,6 +104,7 @@ class ReporteController extends Controller
     //Index para mostrar el registro de venta diaria
     public function index2()
     {
+        
         $date = Carbon::now();
         $date = $date->format('Y-m-d');
 
@@ -118,7 +120,46 @@ class ReporteController extends Controller
             WHERE s.fecha = '$date'
             GROUP BY p.id,od.precio_venta ");
 
+        $total = DB::select("SELECT SUM(od.precio_venta * od.cantidad) AS 'total' FROM sales s 
+        INNER JOIN orders o 
+        ON s.order_id = o.id
+        INNER JOIN order_details od
+        ON o.id = od.order_id
+        WHERE s.fecha = '$date'
+        GROUP BY od.precio_venta ");
+
         return view('reporte.ventas.index2',compact('valor'));
+    }
+
+    public function ventadiaria()
+    {
+        $date = Carbon::now();
+        $date = $date->format('Y-m-d');
+
+        $valor = DB::select("SELECT p.id ,p.nombre, od.precio_venta, SUM(od.cantidad) AS 'cantidad' ,SUM(od.precio_venta * od.cantidad) AS 'subtotal' FROM sales s 
+            INNER JOIN orders o 
+            ON s.order_id = o.id
+            INNER JOIN order_details od
+            ON o.id = od.order_id
+            INNER JOIN entry_details ed
+            ON od.entry_detail_id = ed.id
+            INNER JOIN products p
+            ON ed.product_id = p.id
+            WHERE s.fecha = '$date'
+            GROUP BY p.id,od.precio_venta ");
+
+        $total = DB::select("SELECT SUM(od.precio_venta * od.cantidad) AS 'total' FROM sales s 
+        INNER JOIN orders o 
+        ON s.order_id = o.id
+        INNER JOIN order_details od
+        ON o.id = od.order_id
+        WHERE s.fecha = '$date'
+        GROUP BY od.precio_venta ");
+
+        $pdf = PDF::loadView('reporte.ventas.ventadiaria',compact('date','valor','total'));
+        return $pdf->stream();
+        
+        // return view('reporte.ventas.ventadiaria',compact('date','valor','total'));
     }
 
 }
