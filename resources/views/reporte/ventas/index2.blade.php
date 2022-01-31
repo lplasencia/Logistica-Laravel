@@ -37,6 +37,12 @@
                     <h2 style="float: left">Ventas Diarias</h2>
                     <a href="{{route('reporteventaDiaria.index')}}" type="button" class="btn btn-success" style="float: right">PDF</a>
                 </div>
+                <div>
+                    <div class="col-md-8" style="margin-top: 50px">
+                        <label for="">FECHA :</label>
+                        <input style="margin-left: 10px" type="text" value="{{$date}}" readonly>
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-hover " id="myTable">
                         <thead style="background: #1976D2; color:white; opacity: 0.9">
@@ -62,6 +68,12 @@
                         </tbody>
                     </table>
                 </div>
+
+                <div class="row" style="text-align:center">
+                    <div>
+                        <h3>TOTAL : {{$total[0]->total}}</h3>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- /# card -->
@@ -71,39 +83,6 @@
 </div>
 <!-- End Container fluid  -->
 
-<div class="modal" id="Eliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content" style="width: 140%;">
-            <div class="modal-header bg-danger text-white d-flex justify-content-center">
-                <h5 class="modal-title" id="exampleModalLabel" style="color: white">ELIMINAR EMPRESA</h5>
-            </div>
-            <div class="modal-body d-flex justify-content-center" style="text-align: center;">¿ Quieres eliminar esta Empresa ?</div>
-            <div class="modal-body d-flex justify-content-center" style="padding-top: 0px;">
-                <i class="fas fa-trash-alt fa-3x text-danger"></i>
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <button class="btn btn-outline-danger cerrarModal" style="margin-right: 6%;" type="button" data-dismiss="modal">Cancelar</button>
-                <form method="POST" action="">
-                    @method('DELETE')
-                    @csrf
-                    <a class="btn btn-danger" style="color: white" onclick="$(this).closest('form').submit();">Eliminar</a>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-@endsection
-
-@section('script')
-<script>
-    $('#Eliminar').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var id = button.data('id')
-        var modal = $(this)
-        modal.find('form').attr('action', '/empresa/' + id);
-    })
-</script>
 @endsection
 
 
