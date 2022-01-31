@@ -134,5 +134,7 @@ Route::get('reporte/venta/index','ReporteController@index')->name('reporteVenta.
 Route::post('reporte/venta/mostrar','ReporteController@mostrar')->name('reporteVenta.mostrar');
 Route::get('reporte/venta/info/{ini}/{fin}','ReporteController@info')->name('reporteVenta.info');
 
+Route::get('reporte/venta/index2','ReporteController@index2')->name('ventaDiaria.index');
+
 
 

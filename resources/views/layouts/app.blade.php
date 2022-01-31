@@ -317,7 +317,7 @@
                                     <a href="#">MOVIMIENTOS DE INVENTARIO</a>
                                 </li>
                                 <li>
-                                    <a href="#">COMPRAS</a>
+                                    <a href="{{route('ventaDiaria.index')}}">VENTA DIARIA</a>
                                 </li>
                                 <li>
                                     <a href="{{route('reporteVenta.index')}}">VENTAS</a>
