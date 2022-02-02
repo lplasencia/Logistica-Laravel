@@ -71,7 +71,11 @@
 
                 <div class="row" style="text-align:center">
                     <div>
-                        <h3>TOTAL : {{$total[0]->total}}</h3>
+                        @if(empty($total))
+                            <h3>TOTAL : 0</h3>
+                        @else
+                            <h3>TOTAL : {{$total[0]->total}}</h3>
+                        @endif
                     </div>
                 </div>
             </div>

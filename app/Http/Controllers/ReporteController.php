@@ -126,7 +126,7 @@ class ReporteController extends Controller
         INNER JOIN order_details od
         ON o.id = od.order_id
         WHERE s.fecha = '$date'
-        GROUP BY od.precio_venta ");
+        GROUP BY od.precio_venta "); 
 
         return view('reporte.ventas.index2',compact('valor','date','total'));
     }
