@@ -235,7 +235,7 @@
                         </li>
                         
                         {{-- INVENTARIO --}}
-                        <li class="nav-devider"></li>
+                        {{-- <li class="nav-devider"></li>
                         <li>
                             <a href="#inventario" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">INVENTARIO</span></a>
                             <ul class="collapse list-unstyled" id="inventario">
@@ -249,7 +249,7 @@
                                     <a href="{{route('salida.index')}}">REGISTRAR SALIDA</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                         {{-- COMPRAS --}}
                         <li class="nav-devider"></li>

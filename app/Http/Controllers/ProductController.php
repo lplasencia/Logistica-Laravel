@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Unit;
+use App\Entry_detail;
+use DB;
 
 class ProductController extends Controller
 {
@@ -16,7 +18,17 @@ class ProductController extends Controller
 
     public function index()
     {
-        $product = Product::get();
+
+        $product = DB::select(" SELECT p.id, p.nombre, p.descripcion, u.descripcion AS 'unidad', c.descripcion AS 'categoria', 
+        (SELECT ed.stock_actual FROM entry_details ed WHERE ed.product_id = p.id
+           ORDER by ed.id DESC
+           LIMIT 1) AS 'stock'
+        FROM products p 
+        INNER JOIN units u
+        ON p.unit_id = u.id
+        INNER JOIN categories c
+        ON p.category_id = c.id");
+
         return view('product.index',compact('product'));
     }
 

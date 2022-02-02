@@ -40,21 +40,23 @@
                     <table class="table table-hover " id="myTable">
                         <thead style="background: #1976D2; color:white; opacity: 0.9">
                             <tr>
-                                <th>N°</th>
-                                <th>Nombre</th>
-                                <th>Descripcion</th>
-                                <th>Unidad Medida</th>
-                                <th>Categoria</th>
+                                <th style="text-align: center">N°</th>
+                                <th style="text-align: center">Nombre</th>
+                                <th style="text-align: center">Descripcion</th>
+                                <th style="text-align: center">Stock</th>
+                                <th style="text-align: center">Unidad Medida</th>
+                                <th style="text-align: center">Categoria</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($product as $item)
                             <tr>
                                 <th scope="row" style="color: black; text-align: center">{{ $item->id }}</th>
-                                <td>{{ $item->nombre }}</td>
-                                <td>{{ $item->descripcion }}</td>
-                                <td>{{ $item->unit->descripcion }}</td>
-                                <td>{{ $item->category->descripcion }}</td>
+                                <td style="text-align: center">{{ $item->nombre }}</td>
+                                <td style="text-align: center">{{ $item->descripcion }}</td>
+                                <td style="text-align: center">{{ $item->stock }}</td>
+                                <td style="text-align: center">{{ $item->unidad }}</td>
+                                <td style="text-align: center">{{ $item->categoria }}</td>
                             </tr>
                             @endforeach
                         </tbody>
