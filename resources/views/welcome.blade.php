@@ -35,7 +35,7 @@
         <div class="container-fluid">
             <!-- LOGO -->
             <a class="logo text-uppercase" href="index.html">
-                <img src="/Plantilla/images/unt.png" alt="" class="logo-light" height="80px" />
+                <img src="/imagen/logo.jpg" alt="" class="logo-light" height="80px" />
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

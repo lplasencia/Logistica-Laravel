@@ -112,7 +112,7 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{{ route('home') }}" style="padding:8px">
                         <!-- Logo text -->
-                        <span><img src="/Plantilla/images/unt.png" alt="homepage" class="dark-logo" style="height: 45px" /></span>
+                        <span><img src="/imagen/logo.jpg" alt="homepage" class="dark-logo" style="height: 45px" /></span>
                         
                     </a>
                 </div>
