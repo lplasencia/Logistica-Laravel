@@ -35,7 +35,7 @@
             <div class="card-body">
                 <div>
                     <h2 style="float: left">Ventas Diarias</h2>
-                    <a href="{{route('reporteventaDiaria.index')}}" type="button" class="btn btn-success" style="float: right">PDF</a>
+                    <a href="{{route('reporteventaDiaria.index',$date)}}" type="button" class="btn btn-success" style="float: right">PDF</a>
                 </div>
                 <div>
                     <div class="col-md-8" style="margin-top: 50px">
