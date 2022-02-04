@@ -2,7 +2,6 @@
 
 @section('section')
 
-
 <!-- Bread crumb -->
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
@@ -41,6 +40,13 @@
                     <div class="col-md-8" style="margin-top: 50px">
                         <label for="">FECHA :</label>
                         <input style="margin-left: 10px" type="text" value="{{$date}}" readonly>
+                        @php
+                            use Carbon\Carbon;
+
+                            $fechafin = Carbon::now()->format('H:i:s.v');
+                        @endphp
+                        <input type="text" value="{{$fechaini}}">
+                        <input type="text" value="{{$fechafin}}">
                     </div>
                 </div>
                 <div class="table-responsive">

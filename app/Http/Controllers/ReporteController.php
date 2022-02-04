@@ -132,7 +132,9 @@ class ReporteController extends Controller
         WHERE s.fecha = '$request->date'
         GROUP BY od.precio_venta "); 
 
-        return view('reporte.ventas.index2',compact('valor','date','total'));
+        $fechaini = $request->fechaini;
+
+        return view('reporte.ventas.index2',compact('valor','date','total','fechaini'));
     }
 
     public function ventadiaria($date)
