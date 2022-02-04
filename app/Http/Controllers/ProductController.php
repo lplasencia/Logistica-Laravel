@@ -7,6 +7,8 @@ use App\Product;
 use App\Category;
 use App\Unit;
 use App\Entry_detail;
+use Carbon\Carbon;
+use DateTime;
 use DB;
 
 class ProductController extends Controller
@@ -16,8 +18,22 @@ class ProductController extends Controller
         return $this->middleware('auth');
     }
 
-    public function index()
+    public function index($fechaini)
     {
+        /* $datetime1 = new DateTime('2009-10-11');
+        $datetime2 = new DateTime('2009-10-13');
+        $interval = $datetime1->diff($datetime2);
+
+        return $interval->format('%y,%m,%d,%h,%i,%s,%f'); */
+
+        // $fechafin = new DateTime();
+        // $interval = $fechaini->diff($fechafin);
+
+        // return $intervalo->format('%y,%m,%d,%h,%i,%s,%f');
+
+        // $date2 = Carbon::now()->format('H:i:s.v');
+        // $interval = $fechaini->diff($fechafin);
+        // return $intervalo->format('%y,%m,%d,%h,%i,%s,%f');
 
         $product = DB::select(" SELECT p.id, p.nombre, p.descripcion, u.descripcion AS 'unidad', c.descripcion AS 'categoria', 
         (SELECT ed.stock_actual FROM entry_details ed WHERE ed.product_id = p.id
@@ -29,7 +45,7 @@ class ProductController extends Controller
         INNER JOIN categories c
         ON p.category_id = c.id");
 
-        return view('product.index',compact('product'));
+        return view('product.index',compact('product','fechaini'));
     }
 
     public function create()

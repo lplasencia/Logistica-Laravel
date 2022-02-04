@@ -58,8 +58,11 @@
         use Carbon\Carbon;
 
         $user = Auth::user();
-        $date = Carbon::now();
+        $fechaini = Carbon::now()->format('H:i:s.v');
 
+        $datetime1 = new DateTime('2009-10-11');
+        $datetime2 = new DateTime('2009-10-13');
+        $interval = $datetime1->diff($datetime2);
     @endphp
 
 <style>
@@ -226,7 +229,7 @@
                             <a href="#producto" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">PRODUCTOS</span></a>
                             <ul class="collapse list-unstyled" id="producto">
                                 <li>
-                                    <a href="{{route('product.index')}}">LISTA PRODUCTOS</a>
+                                    <a href="{{route('product.index',$fechaini)}}">LISTA PRODUCTOS</a>
                                 </li>
                                 <li>
                                     <a href="{{route('product.create')}}">NUEVO PRODUCTO</a>
@@ -347,8 +350,6 @@
                     });
                 });
             </script>
-
-            <input type="text" value="{{$date}}">
 
             @yield('section')
 

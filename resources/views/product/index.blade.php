@@ -7,6 +7,13 @@
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
         <h3 class="text-primary">PRODUCTO</h3>
+        @php
+            use Carbon\Carbon;
+
+            $fechafin = Carbon::now()->format('H:i:s.v');
+        @endphp
+        <input type="text" value="{{$fechaini}}">
+        <input type="text" value="{{$fechafin}}">
     </div>
     <div class="col-md-7 align-self-center">
         <ol class="breadcrumb">
