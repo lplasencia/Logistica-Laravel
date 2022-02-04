@@ -55,8 +55,11 @@
 
     @php
         use Illuminate\Support\Facades\Auth;
+        use Carbon\Carbon;
 
         $user = Auth::user();
+        $date = Carbon::now();
+
     @endphp
 
 <style>
@@ -344,6 +347,8 @@
                     });
                 });
             </script>
+
+            <input type="text" value="{{$date}}">
 
             @yield('section')
 
