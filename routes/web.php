@@ -142,6 +142,8 @@ Route::get('reporte/venta/ventaDiaria/{date}','ReporteController@ventadiaria')->
 //Toma Tiempos
 Route::post('medicion/producto','TimeController@producto')->name('medicionproducto.index');
 Route::post('medicion/venta','TimeController@venta')->name('medicionventa.index');
+Route::get('medicion/tiempos','TimeController@index')->name('tiempo.index');
+
 
 
 

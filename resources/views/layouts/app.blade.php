@@ -319,9 +319,9 @@
                         <li>
                             <a href="#reportes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">REPORTES</span></a>
                             <ul class="collapse list-unstyled" id="reportes">
-                                {{-- <li>
-                                    <a href="#">MOVIMIENTOS DE INVENTARIO</a>
-                                </li> --}}
+                                <li>
+                                    <a href="{{route('tiempo.index')}}">TIEMPOS</a>
+                                </li>
                                 <li>
                                     <a href="{{route('fecha.index',$fechaini)}}">VENTA DIARIA</a>
                                 </li>

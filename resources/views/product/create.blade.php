@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-7 align-self-center">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Producto</a></li>
+            <li class="breadcrumb-item"><a href="">Producto</a></li>
             <li class="breadcrumb-item active">Nuevo Producto</li>
         </ol>
     </div>

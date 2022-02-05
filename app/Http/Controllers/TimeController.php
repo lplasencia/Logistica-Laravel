@@ -77,4 +77,10 @@ class TimeController extends Controller
 
         return redirect()->route('home')->with('datos', 'Tiempo Registrado');
     }
+
+    public function index()
+    {
+        $time = Time::get();
+        return view('reporte.tiempos.index',compact('time'));
+    }
 }
