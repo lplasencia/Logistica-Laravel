@@ -46,12 +46,16 @@
 
                         $fechafin = Carbon::now()->format('H:i:s.v');
                     @endphp
-                    <div style="border: solid; width: 50%">
-                        <label for="">Inicio :</label>
-                        <input type="text" value="{{$fechaini}}">
-                        <label for="">Fin:</label>
-                        <input type="text" value="{{$fechafin}}">
-                    </div>
+                    <form method="POST" action="{{route('medicionventa.index')}}">
+                        @csrf
+                        <div style="border: solid; width: 60%">
+                            <label for="">Inicio :</label>
+                            <input type="text" name="fechaini" value="{{$fechaini}}">
+                            <label for="">Fin:</label>
+                            <input type="text" name="fechafin" value="{{$fechafin}}">
+                            <button type="submit" class="btn btn-info btn"> <i class="fa fa-check"></i> Guardar</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover " id="myTable">
