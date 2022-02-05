@@ -101,9 +101,9 @@ class ReporteController extends Controller
 
     }
 
-    public function fecha()
+    public function fecha($fechaini)
     {
-        return view('reporte.ventas.fecha');
+        return view('reporte.ventas.fecha',compact('fechaini'));
     }
 
     //Index para mostrar el registro de venta diaria

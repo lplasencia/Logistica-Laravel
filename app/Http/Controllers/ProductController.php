@@ -134,4 +134,9 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
     }
+
+    public function ver($fechaini)
+    {
+        return view('product.ver',compact('fechaini'));
+    }
 }

@@ -7,13 +7,6 @@
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
         <h3 class="text-primary">PRODUCTO</h3>
-        @php
-            use Carbon\Carbon;
-
-            $fechafin = Carbon::now()->format('H:i:s.v');
-        @endphp
-        <input type="text" value="{{$fechaini}}">
-        <input type="text" value="{{$fechafin}}">
     </div>
     <div class="col-md-7 align-self-center">
         <ol class="breadcrumb">
@@ -49,10 +42,11 @@
                             <tr>
                                 <th style="text-align: center">N°</th>
                                 <th style="text-align: center">Nombre</th>
-                                <th style="text-align: center">Descripcion</th>
+                                {{-- <th style="text-align: center">Descripcion</th>
                                 <th style="text-align: center">Stock</th>
                                 <th style="text-align: center">Unidad Medida</th>
-                                <th style="text-align: center">Categoria</th>
+                                <th style="text-align: center">Categoria</th> --}}
+                                <th style="text-align: center">Opción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -60,10 +54,13 @@
                             <tr>
                                 <th scope="row" style="color: black; text-align: center">{{ $item->id }}</th>
                                 <td style="text-align: center">{{ $item->nombre }}</td>
-                                <td style="text-align: center">{{ $item->descripcion }}</td>
+                                {{-- <td style="text-align: center">{{ $item->descripcion }}</td>
                                 <td style="text-align: center">{{ $item->stock }}</td>
                                 <td style="text-align: center">{{ $item->unidad }}</td>
-                                <td style="text-align: center">{{ $item->categoria }}</td>
+                                <td style="text-align: center">{{ $item->categoria }}</td> --}}
+                                <td style="text-align:center">
+                                    <a href="{{route('product.ver',$fechaini)}}"><i class="fas fa-eye" style="color:#3084D7; font-size: 20px;"></i></a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

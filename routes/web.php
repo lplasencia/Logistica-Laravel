@@ -56,6 +56,7 @@ Route::get('product/list','ProductController@list')->name('product.list');
 Route::get('product/edit/{id}','ProductController@edit')->name('product.edit');
 Route::put('product/update/{id}','ProductController@update')->name('product.update');
 Route::get('/product/delete/{id}','ProductController@delete')->name('product.delete');
+Route::get('/product/ver/{fechaini}','ProductController@ver')->name('product.ver');
 Route::get(('cancelarProduct'), function(){
     return redirect()->route('product.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarProduct');
@@ -134,9 +135,12 @@ Route::get('reporte/venta/index','ReporteController@index')->name('reporteVenta.
 Route::post('reporte/venta/mostrar','ReporteController@mostrar')->name('reporteVenta.mostrar');
 Route::get('reporte/venta/info/{ini}/{fin}','ReporteController@info')->name('reporteVenta.info');
 
-Route::get('reporte/venta/fecha','ReporteController@fecha')->name('fecha.index');
+Route::get('reporte/venta/fecha/{fechaini}','ReporteController@fecha')->name('fecha.index');
 Route::post('reporte/venta/index2','ReporteController@index2')->name('ventaDiaria.index');
 Route::get('reporte/venta/ventaDiaria/{date}','ReporteController@ventadiaria')->name('reporteventaDiaria.index');
+
+//Toma Tiempos
+Route::post('medicion/producto','TimeController@producto')->name('medicionproducto.index');
 
 
 

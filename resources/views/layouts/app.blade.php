@@ -60,9 +60,9 @@
         $user = Auth::user();
         $fechaini = Carbon::now()->format('H:i:s.v');
 
-        $datetime1 = new DateTime('2009-10-11');
+        /* $datetime1 = new DateTime('2009-10-11');
         $datetime2 = new DateTime('2009-10-13');
-        $interval = $datetime1->diff($datetime2);
+        $interval = $datetime1->diff($datetime2); */
     @endphp
 
 <style>
@@ -319,11 +319,11 @@
                         <li>
                             <a href="#reportes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">REPORTES</span></a>
                             <ul class="collapse list-unstyled" id="reportes">
-                                <li>
+                                {{-- <li>
                                     <a href="#">MOVIMIENTOS DE INVENTARIO</a>
-                                </li>
+                                </li> --}}
                                 <li>
-                                    <a href="{{route('fecha.index')}}">VENTA DIARIA</a>
+                                    <a href="{{route('fecha.index',$fechaini)}}">VENTA DIARIA</a>
                                 </li>
                                 <li>
                                     <a href="{{route('reporteVenta.index')}}">VENTAS</a>

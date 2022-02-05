@@ -40,12 +40,16 @@
                     <div class="col-md-8" style="margin-top: 50px">
                         <label for="">FECHA :</label>
                         <input style="margin-left: 10px" type="text" value="{{$date}}" readonly>
-                        @php
-                            use Carbon\Carbon;
+                    </div>
+                    @php
+                        use Carbon\Carbon;
 
-                            $fechafin = Carbon::now()->format('H:i:s.v');
-                        @endphp
+                        $fechafin = Carbon::now()->format('H:i:s.v');
+                    @endphp
+                    <div style="border: solid; width: 50%">
+                        <label for="">Inicio :</label>
                         <input type="text" value="{{$fechaini}}">
+                        <label for="">Fin:</label>
                         <input type="text" value="{{$fechafin}}">
                     </div>
                 </div>

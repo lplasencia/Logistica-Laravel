@@ -4,12 +4,6 @@
 
 @section('section')
 
-@php
-use Carbon\Carbon;
-
-$fechaini = Carbon::now()->format('H:i:s.v');
-@endphp
-
 <!-- Bread crumb -->
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
