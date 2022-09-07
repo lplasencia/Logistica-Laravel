@@ -1,0 +1,66 @@
+Tareas por hacer:
+
+  Login:
+    ☐ Quitar la parte de mantener sesión iniciada, Olvidaste contraseña y Crear cuenta aquí
+    ☐ Mostrar error si no se encontro al login o al password
+
+  Home:
+    ☐ La parte donde sale el nombre del usuario que al dar click mande a su perfil
+    ☐ Buscar una forma de cerrar sesión
+    ☐ Que la tabla que se muestre bote datos reales
+  
+  Empleado:
+    ☐ Agreagar el editar empleado
+    ☐ Agregar el eliminar empleado
+  
+  Usuario:
+    ☐ Agregar el editar usuario
+    ☐ Agregar el eliminar usuario
+  
+  Documentos:
+    ☐ Agregar editar documeto
+    ☐ Agregar elimiar documento
+    Teniendo en consideración que el documento no este siendo utilizado, sino no permitir su eliminación
+  
+  Producto:
+    ☐ Arreglar el editar produto
+    ☐ Agregar ele eliminar un producto
+    Teniendo en consideración que el producto no se este utilizando
+  
+  Proveedor:
+    ☐ Quitar detalles a la tabla que se muestra
+    ☐ Agregar en lista una opcion para ver más detalles del proveedor
+  
+  Ventas:
+    ☐ Ver si es necesario hacer un pdf de la boleta
+    Si es así corregir la boleta y que se pueda descargar en PDF
+  
+  Pedido:
+    ☐ Habilitar el eliminar pedido
+    ☐ Agregar botón para poder ver info del pedido
+    ☐ Si es proforma que se pueda generar un PDF de la proforma del pedido
+    ☐ Cambiar el icono de finalizar pedido (en lugar de un lapiz)
+
+  Cliente:
+    ☐ Centrar la información de la tabla Lista Cliente
+  
+  Comprobante:
+    ☐ Habilitar eliminar comprobante
+    Validando que si esta en uso que no se elimine
+    ☐ Cambiar la serie y numero por Varchar (para que no tierda los ceros de adelante)
+
+  Adicionales:
+    ☐ Validar los permisos de los usuarios
+  
+
+
+Info acerca de Todo:
+
+  ☐ Press Cmd/Ctrl+Enter to add a new todo
+  ✔ Press Alt+D to mark a todo as done
+  ✘ Press Alt+C to mark a todo as cancelled
+  ☐ Press Alt+S to mark a todo as started
+  ☐ There are some special, customizable tags: @critical @high @low @today
+  ☐ Use tildes for ~strikethrough~ (alt+126)
+  ☐ Use underscores for _italic_
+  ☐ Use asterisks for *bold*
