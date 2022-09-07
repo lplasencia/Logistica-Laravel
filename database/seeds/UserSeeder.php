@@ -19,12 +19,12 @@ class UserSeeder extends Seeder
 
         $user = new User();
         $user->name = 'Admin';
-        $user->email = 'admin@admin.com';
+        $user->email = 'admin@gmail.com';
         $user->password = Hash::make(12345678);
-        $user->employee_id = 11;
+/*         $user->employee_id = 11;
         $user->company_id = 1;
         $user->fecha_registro = $date;
-        $user->tipo_usuario = 'Administrador';
+        $user->tipo_usuario = 'Administrador'; */
         $user->save();
     }
 }
