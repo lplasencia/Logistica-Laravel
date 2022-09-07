@@ -9,7 +9,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema vidrieria
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `vidrieria` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+CREATE SCHEMA IF NOT EXISTS `vidrieria`;
 USE `vidrieria` ;
 
 -- -----------------------------------------------------
@@ -52,14 +52,7 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`companies` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
--- -----------------------------------------------------
--- Table `vidrieria`.`companies`
--- -----------------------------------------------------
-ALTER TABLE `vidrieria`.`companies` AUTO_INCREMENT = 1;
-
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- -----------------------------------------------------
 -- Table `vidrieria`.`company_document_details`
@@ -71,8 +64,6 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`company_document_details` (
   `document_type_id` INT NOT NULL,
   `company_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_company_document_details_document_types_idx` (`document_type_id` ASC) VISIBLE,
-  INDEX `fk_company_document_details_companies1_idx` (`company_id` ASC) VISIBLE,
   CONSTRAINT `fk_company_document_details_document_types`
     FOREIGN KEY (`document_type_id`)
     REFERENCES `vidrieria`.`document_types` (`id`)
@@ -99,13 +90,12 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`suppliers` (
   `telefono` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_suppliers_companies1_idx` (`company_id` ASC) VISIBLE,
   CONSTRAINT `fk_suppliers_companies1`
     FOREIGN KEY (`company_id`)
     REFERENCES `vidrieria`.`companies` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
+
 
 
 -- -----------------------------------------------------
@@ -125,8 +115,6 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`users` (
   `fecha_registro` DATE NOT NULL,
   `tipo_usuario` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_users_employees1_idx` (`employee_id` ASC) VISIBLE,
-  INDEX `fk_users_companies1_idx` (`company_id` ASC) VISIBLE,
   CONSTRAINT `fk_users_employees1`
     FOREIGN KEY (`employee_id`)
     REFERENCES `vidrieria`.`employees` (`id`)
@@ -139,8 +127,8 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`users` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
+DEFAULT CHARACTER SET = utf8mb4;
+
 
 
 -- -----------------------------------------------------
@@ -159,9 +147,6 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`entries` (
   `company_id` INT NOT NULL,
   `user_id` BIGINT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_entries_suppliers1_idx` (`supplier_id` ASC) VISIBLE,
-  INDEX `fk_entries_companies1_idx` (`company_id` ASC) VISIBLE,
-  INDEX `fk_entries_users1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_entries_suppliers1`
     FOREIGN KEY (`supplier_id`)
     REFERENCES `vidrieria`.`suppliers` (`id`)
@@ -188,8 +173,8 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`categories` (
   `descripcion` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
+
 
 
 -- -----------------------------------------------------
@@ -200,8 +185,8 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`units` (
   `descripcion` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
+
 
 
 -- -----------------------------------------------------
@@ -214,8 +199,6 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`products` (
   `unit_id` INT NOT NULL,
   `category_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_products_categories_idx` (`category_id` ASC) VISIBLE,
-  INDEX `fk_products_units1_idx` (`unit_id` ASC) VISIBLE,
   CONSTRAINT `fk_products_categories`
     FOREIGN KEY (`category_id`)
     REFERENCES `vidrieria`.`categories` (`id`),
@@ -223,8 +206,8 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`products` (
     FOREIGN KEY (`unit_id`)
     REFERENCES `vidrieria`.`units` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
+
 
 
 -- -----------------------------------------------------
@@ -239,8 +222,6 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`entry_details` (
   `entry_id` INT NOT NULL,
   `product_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_entry_details_entries1_idx` (`entry_id` ASC) VISIBLE,
-  INDEX `fk_entry_details_products1_idx` (`product_id` ASC) VISIBLE,
   CONSTRAINT `fk_entry_details_entries1`
     FOREIGN KEY (`entry_id`)
     REFERENCES `vidrieria`.`entries` (`id`)
@@ -265,14 +246,13 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`customers` (
   `telefono` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_customers_companies1_idx` (`company_id` ASC) VISIBLE,
   CONSTRAINT `fk_customers_companies1`
     FOREIGN KEY (`company_id`)
     REFERENCES `vidrieria`.`companies` (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
+
 
 
 -- -----------------------------------------------------
@@ -287,9 +267,6 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`orders` (
   `customer_id` INT NOT NULL,
   `company_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_order_users1_idx` (`user_id` ASC) VISIBLE,
-  INDEX `fk_order_customers1_idx` (`customer_id` ASC) VISIBLE,
-  INDEX `fk_order_companies1_idx` (`company_id` ASC) VISIBLE,
   CONSTRAINT `fk_order_users1`
     FOREIGN KEY (`user_id`)
     REFERENCES `vidrieria`.`users` (`id`)
@@ -318,8 +295,6 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`order_details` (
   `order_id` INT NOT NULL,
   `entry_detail_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_order_details_order1_idx` (`order_id` ASC) VISIBLE,
-  INDEX `fk_order_details_entry_details1_idx` (`entry_detail_id` ASC) VISIBLE,
   CONSTRAINT `fk_order_details_order1`
     FOREIGN KEY (`order_id`)
     REFERENCES `vidrieria`.`orders` (`id`)
@@ -361,8 +336,6 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`sales` (
   `order_id` INT NOT NULL,
   `user_id` BIGINT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_sales_orders1_idx` (`order_id` ASC) VISIBLE,
-  INDEX `fk_sales_users1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_sales_orders1`
     FOREIGN KEY (`order_id`)
     REFERENCES `vidrieria`.`orders` (`id`)
@@ -389,8 +362,8 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`failed_jobs` (
   `failed_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
+DEFAULT CHARACTER SET = utf8mb4;
+
 
 
 -- -----------------------------------------------------
@@ -403,8 +376,8 @@ CREATE TABLE IF NOT EXISTS `vidrieria`.`migrations` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
+DEFAULT CHARACTER SET = utf8mb4;
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
