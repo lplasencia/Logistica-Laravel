@@ -1,7 +1,7 @@
 Tareas por hacer:
 
   Login:
-    ☐ Quitar la parte de mantener sesión iniciada, Olvidaste contraseña y Crear cuenta aquí
+    ✔ Quitar la parte de mantener sesión iniciada, Olvidaste contraseña y Crear cuenta aquí @done(22-09-07 18:52)
     ☐ Mostrar error si no se encontro al login o al password
 
   Home:

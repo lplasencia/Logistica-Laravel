@@ -49,24 +49,8 @@
                                         </span>
                                         @enderror
                                     </div>
-
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Mantener sesión iniciada') }}
-                                        </label>
-                                        <label class="pull-right">
-                                            @if (Route::has('password.request'))
-                                            <a href="#">{{ __('Olvidaste al contraseña?') }}</a>
-                                            <!-- {{ route('password.request') }} -->
-                                            @endif
-                                        </label>
-                                    </div>
                                     
                                     <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">{{ __('Iniciar Sesión') }}</button>
-
-                                    <div class="register-link m-t-15 text-center">
-                                        <p>No tienes una cuenta ? <a href="#"> Crearte una aquí</a></p>
-                                    </div>
                                 </form>
                             </div>
                         </div>
