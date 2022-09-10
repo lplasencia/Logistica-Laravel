@@ -40,16 +40,16 @@
                                         <div class="form-group row">
                                             <label class="control-label text-left col-md-2" for="nombre">Nombre:</label>
                                             <div class="col-md-5">
-                                                <input type="text" id="nombre" name="nombre" value="" class="form-control input-sm @error('nombre') is-invalid @enderror">
+                                                <input type="text" id="nombre" name="nombre" value="{{$empleado->nombre}}" class="form-control input-sm @error('nombre') is-invalid @enderror">
                                                 @error('nombre')
                                                 <div class="form-control-feedback" style="color:red">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             <div class="col-md-1"></div>
-                                            <label class="control-label text-left col-md-1" for="nombre">DNI:</label>
+                                            <label class="control-label text-left col-md-1" for="dni">DNI:</label>
                                             <div class="col-md-3">
-                                                <input type="text" id="nombre" name="nombre" value="" class="form-control input-sm @error('nombre') is-invalid @enderror">
-                                                @error('nombre')
+                                                <input type="text" id="dni" name="dni" value="{{$empleado->dni}}" class="form-control input-sm @error('dni') is-invalid @enderror">
+                                                @error('dni')
                                                 <div class="form-control-feedback" style="color:red">{{ $message }}</div>
                                                 @enderror
                                             </div>
@@ -58,18 +58,18 @@
 
                                     <div class="col-md-11" style="margin-top: 20px">
                                         <div class="form-group row">
-                                            <label class="control-label text-left col-md-2" for="nombre">Dirección:</label>
+                                            <label class="control-label text-left col-md-2" for="direccion">Dirección:</label>
                                             <div class="col-md-4">
-                                                <input type="text" id="nombre" name="nombre" value="" class="form-control input-sm @error('nombre') is-invalid @enderror">
-                                                @error('nombre')
+                                                <input type="text" id="direccion" name="direccion" value="{{$empleado->direccion}}" class="form-control input-sm @error('direccion') is-invalid @enderror">
+                                                @error('direccion')
                                                 <div class="form-control-feedback" style="color:red">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             <div class="col-md-1"></div>
-                                            <label class="control-label text-left col-md-2" for="nombre">Telefono:</label>
+                                            <label class="control-label text-left col-md-2" for="telefono">Telefono:</label>
                                             <div class="col-md-3">
-                                                <input type="text" id="nombre" name="nombre" value="" class="form-control input-sm @error('nombre') is-invalid @enderror">
-                                                @error('nombre')
+                                                <input type="text" id="telefono" name="telefono" value="{{$empleado->telefono}}" class="form-control input-sm @error('telefono') is-invalid @enderror">
+                                                @error('telefono')
                                                 <div class="form-control-feedback" style="color:red">{{ $message }}</div>
                                                 @enderror
                                             </div>
@@ -78,10 +78,18 @@
 
                                     <div class="col-md-11" style="margin-top: 20px">
                                         <div class="form-group row">
-                                            <label class="control-label text-left col-md-2" for="nombre">Email:</label>
-                                            <div class="col-md-10">
-                                                <input type="text" id="nombre" name="nombre" value="" class="form-control input-sm @error('nombre') is-invalid @enderror">
-                                                @error('nombre')
+                                            <label class="control-label text-left col-md-2" for="email">Email:</label>
+                                            <div class="col-md-4">
+                                                <input type="text" id="email" name="email" value="{{$empleado->email}}" class="form-control input-sm @error('email') is-invalid @enderror">
+                                                @error('email')
+                                                <div class="form-control-feedback" style="color:red">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="col-md-1"></div>
+                                            <label class="control-label text-left col-md-2" for="fecha_nac">Fecha Nac. :</label>
+                                            <div class="col-md-3">
+                                                <input type="date" id="fecha_nac" name="fecha_nac" value="{{$empleado->fecha_nac}}" class="form-control input-sm @error('fecha_nac') is-invalid @enderror">
+                                                @error('fecha_nac')
                                                 <div class="form-control-feedback" style="color:red">{{ $message }}</div>
                                                 @enderror
                                             </div>

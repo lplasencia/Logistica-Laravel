@@ -98,7 +98,14 @@
         .then((willDelete) => {
             if (willDelete) {
                 $.get('/customer/delete/'+id, function(data){
-                    location.reload();
+                    swal({
+                        title: "Acción Realizada",
+                        icon: "success",
+                        text: "                ",
+                        angerMode: true,
+                        buttons: false,
+                    });
+                    setTimeout(() => { location.reload(); }, 1000);
                 });
             } else {
                 swal("Acción Cancelada");

@@ -100,6 +100,6 @@ class CustomerController extends Controller
     public function delete($id)
     {
         $customer = Customer::findOrFail($id);
-        $customer->delete();
+        // $customer->delete();
     }
 }

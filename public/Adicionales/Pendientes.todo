@@ -10,7 +10,7 @@ Tareas por hacer:
     ☐ Que la tabla que se muestre bote datos reales
   
   Empleado:
-    ☐ Agreagar el editar empleado
+    ✔ Agreagar el editar empleado @done(22-09-10 11:50)
     ☐ Agregar el eliminar empleado
   
   Usuario:
@@ -53,6 +53,8 @@ Tareas por hacer:
     ☐ Validar los permisos de los usuarios
     ☐ Cambiar nombre de la titulo de la pagina por la de la empresa
     ☐ Cambiar el logo de la pagina por el de la empresa (si es quie tiene)
+    ☐ Cambiar la validación por js
+    ☐ Cambiar la fecha por otro modelo
   
 
 
