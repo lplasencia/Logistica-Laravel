@@ -63,7 +63,7 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->fecha_nac }}</td>
                                 <td style="text-align:center">
-                                    <a href="{{-- {{route('empresa.edit', $item->empresa->empresa_id)}} --}}"><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a>
+                                    <a href="{{route('empleado.edit', $item->id)}}"><i class="fas fa-edit" style="color:#3084D7; font-size: 20px;"></i></a>
                                     <a href="#" data-toggle="modal" data-target="#Eliminar" data-id="{{$item['empresa_id']}}"><i class="fas fa-trash-alt fa-fw" style="color:#3084D7; font-size: 20px;"></i></a>
                                 </td>
                             </tr>

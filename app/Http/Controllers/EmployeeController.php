@@ -56,4 +56,10 @@ class EmployeeController extends Controller
         return redirect()->route('empleado.index')->with('datos', 'Empleado Registrado Satisfactoriamente');
 
     }
+
+    public function edit($id)
+    {
+        $empleado = Employee::FindOrFail($id);
+        return view('mantenimiento.empleado.edit',compact('empleado'));
+    }
 }

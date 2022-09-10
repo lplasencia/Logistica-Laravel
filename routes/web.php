@@ -71,6 +71,9 @@ Route::get('inventory/salida/index','InventaryController@salida')->name('salida.
 Route::get('mantenimiento/empleado/index','EmployeeController@index')->name('empleado.index');
 Route::get('mantenimiento/empleado/create','EmployeeController@create')->name('empleado.create');
 Route::post('mantenimiento/empleado/store','EmployeeController@store')->name('empleado.store');
+Route::get('mantenimiento/empleado/edit/{id}','EmployeeController@edit')->name('empleado.edit');
+Route::put('mantenimiento/empleado/update/{id}','EmployeeController@update')->name('empleado.update');
+Route::get('supplier/edit/{id}','SupplierController@edit')->name('supplier.edit');
 Route::get(('cancelarEmpleado'), function(){
     return redirect()->route('empleado.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarEmpleado');
