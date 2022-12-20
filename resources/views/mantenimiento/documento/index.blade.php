@@ -74,9 +74,9 @@
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content" style="width: 140%;">
             <div class="modal-header bg-danger text-white d-flex justify-content-center">
-                <h5 class="modal-title" id="exampleModalLabel" style="color: white">ELIMINAR EMPRESA</h5>
+                <h5 class="modal-title" id="exampleModalLabel" style="color: white">ELIMINAR DOCUMENTO</h5>
             </div>
-            <div class="modal-body d-flex justify-content-center" style="text-align: center;">¿ Quieres eliminar esta Empresa ?</div>
+            <div class="modal-body d-flex justify-content-center" style="text-align: center;">¿ Quieres eliminar este documento ?</div>
             <div class="modal-body d-flex justify-content-center" style="padding-top: 0px;">
                 <i class="fas fa-trash-alt fa-3x text-danger"></i>
             </div>
