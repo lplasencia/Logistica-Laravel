@@ -139,11 +139,11 @@
                     <ul class="navbar-nav my-lg-0">
                         <!-- Profile -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#logout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{$user->name}}
                                 <i class="fa fa-user"></i>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right animated slideInRight">
+                            {{-- <div class="dropdown-menu dropdown-menu-right animated slideInRight">
                                 <ul class="dropdown-user" id="logout">
                                     <li role="separator" class="divider"></li>
                                     <li><a href=""> Perfil</a></li>
@@ -154,7 +154,7 @@
                                         @csrf
                                     </form>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </li>
                     </ul>
                 </div>
@@ -229,7 +229,7 @@
                             <a href="#producto" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-house-user"></i><span class="hide-menu">PRODUCTOS</span></a>
                             <ul class="collapse list-unstyled" id="producto">
                                 <li>
-                                    <a href="{{route('product.index',$fechaini)}}">LISTA PRODUCTOS</a>
+                                    <a href="{{route('product.index')}}">LISTA PRODUCTOS</a>
                                 </li>
                                 <li>
                                     <a href="{{route('product.create')}}">NUEVO PRODUCTO</a>
@@ -328,6 +328,18 @@
                                 <li>
                                     <a href="{{route('reporteVenta.index')}}">VENTAS</a>
                                 </li>
+                            </ul>
+                        </li>
+                        <li class="nav-devider"></li>
+                        <li>
+                            <a href="#diego" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-user"></i><span class="hide-menu">CERRAR SESIÓN</span></a>
+                            <ul class="collapse list-unstyled" id="diego">
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"> Cerrar Sesión</a></li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </ul>
                         </li>
                     </ul>

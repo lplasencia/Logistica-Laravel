@@ -10,7 +10,7 @@
     </div>
     <div class="col-md-7 align-self-center">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('product.index',$fechaini) }}">Producto</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Producto</a></li>
             <li class="breadcrumb-item active">Ver Producto</li>
         </ol>
     </div>
@@ -20,13 +20,8 @@
 <!-- Container fluid  -->
 <div class="container-fluid">
     <!-- Start Page Content -->
-    @php
-    use Carbon\Carbon;
 
-    $fechafin = Carbon::now()->format('H:i:s.v');
-    @endphp
-
-    <form method="POST" action="{{route('medicionproducto.index')}}">
+    {{-- <form method="POST" action="{{route('medicionproducto.index')}}">
         @csrf
         <div style="border: solid; width: 50%">
             <label for="">Inicio :</label>
@@ -35,7 +30,7 @@
             <input type="text" name="fechafin" value="{{$fechafin}}">
             <button type="submit" class="btn btn-info btn"> <i class="fa fa-check"></i> Guardar</button>
         </div>
-    </form>
+    </form> --}}
     <!-- Container fluid  -->
     <div class="container-fluid">
         <!-- Start Page Content -->

@@ -36,7 +36,7 @@
                     <h2 style="float: left">Ventas Diarias</h2>
                     <a href="{{route('reporteventaDiaria.index',$date)}}" type="button" class="btn btn-success" style="float: right">PDF</a>
                 </div>
-                <div>
+                {{-- <div>
                     <div class="col-md-8" style="margin-top: 50px">
                         <label for="">FECHA :</label>
                         <input style="margin-left: 10px" type="text" value="{{$date}}" readonly>
@@ -56,7 +56,7 @@
                             <button type="submit" class="btn btn-info btn"> <i class="fa fa-check"></i> Guardar</button>
                         </div>
                     </form>
-                </div>
+                </div> --}}
                 <div class="table-responsive">
                     <table class="table table-hover " id="myTable">
                         <thead style="background: #1976D2; color:white; opacity: 0.9">

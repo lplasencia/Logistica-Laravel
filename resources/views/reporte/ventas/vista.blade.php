@@ -5,11 +5,11 @@
 <section class="content">
 
     <div class="container-fluid">
-        <label for="">Fecha Inicio</label>
+        {{-- <label for="">Fecha Inicio</label>
         <input type="text" id="inicio" name="inicio" value="{{$inicio}}">
 
         <label for="">Fecha Fin</label>
-        <input type="text" id="fin" name="fin" value="{{$fin}}">
+        <input type="text" id="fin" name="fin" value="{{$fin}}"> --}}
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->

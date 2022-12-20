@@ -18,7 +18,7 @@ class ProductController extends Controller
         return $this->middleware('auth');
     }
 
-    public function index($fechaini)
+    public function index()
     {
         /* $datetime1 = new DateTime('2009-10-11');
         $datetime2 = new DateTime('2009-10-13');
@@ -45,7 +45,7 @@ class ProductController extends Controller
         INNER JOIN categories c
         ON p.category_id = c.id");
 
-        return view('product.index',compact('product','fechaini'));
+        return view('product.index',compact('product'));
     }
 
     public function create()
@@ -135,8 +135,8 @@ class ProductController extends Controller
         $product->delete();
     }
 
-    public function ver($fechaini)
+    public function ver()
     {
-        return view('product.ver',compact('fechaini'));
+        return view('product.ver');
     }
 }

@@ -59,7 +59,7 @@
                                 <td style="text-align: center">{{ $item->unidad }}</td>
                                 <td style="text-align: center">{{ $item->categoria }}</td> --}}
                                 <td style="text-align:center">
-                                    <a href="{{route('product.ver',$fechaini)}}"><i class="fas fa-eye" style="color:#3084D7; font-size: 20px;"></i></a>
+                                    <a href="{{route('product.ver')}}"><i class="fas fa-eye" style="color:#3084D7; font-size: 20px;"></i></a>
                                 </td>
                             </tr>
                             @endforeach

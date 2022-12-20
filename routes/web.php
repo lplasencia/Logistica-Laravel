@@ -56,7 +56,7 @@ Route::get('product/list','ProductController@list')->name('product.list');
 Route::get('product/edit/{id}','ProductController@edit')->name('product.edit');
 Route::put('product/update/{id}','ProductController@update')->name('product.update');
 Route::get('/product/delete/{id}','ProductController@delete')->name('product.delete');
-Route::get('/product/ver/{fechaini}','ProductController@ver')->name('product.ver');
+Route::get('/product/ver/','ProductController@ver')->name('product.ver');
 Route::get(('cancelarProduct'), function(){
     return redirect()->route('product.index')->with('datos', 'Acción Cancelada');
 })->name('cancelarProduct');
