@@ -142,6 +142,9 @@ Route::get('reporte/venta/fecha/{fechaini}','ReporteController@fecha')->name('fe
 Route::post('reporte/venta/index2','ReporteController@index2')->name('ventaDiaria.index');
 Route::get('reporte/venta/ventaDiaria/{date}','ReporteController@ventadiaria')->name('reporteventaDiaria.index');
 
+Route::get('reporte/producto', 'ReporteController@cantidad_mensual')->name('reporte.producto');
+Route::get('reporte/ver/{id}', 'ReporteController@ver')->name('reporte.ver');
+
 //Toma Tiempos
 Route::post('medicion/producto','TimeController@producto')->name('medicionproducto.index');
 Route::post('medicion/venta','TimeController@venta')->name('medicionventa.index');

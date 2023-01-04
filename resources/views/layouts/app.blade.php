@@ -328,6 +328,9 @@
                                 <li>
                                     <a href="{{route('reporteVenta.index')}}">VENTAS</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('reporte.producto')}}">ERP</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-devider"></li>

@@ -166,4 +166,52 @@ class ReporteController extends Controller
         // return view('reporte.ventas.ventadiaria',compact('date','valor','total'));
     }
 
+    public function cantidad_mensual()
+    {
+        $productos = DB::select("SELECT p.id, p.nombre, p.descripcion, SUM(od.cantidad) as 'cantidad' FROM order_details od
+        INNER JOIN entry_details ed
+        ON od.entry_detail_id = ed.id
+        INNER JOIN products p
+        ON ed.product_id = p.id
+        INNER JOIN orders o
+        ON od.order_id = o.id
+        INNER JOIN sales s 
+        ON s.order_id = o.id
+        WHERE MONTH(s.fecha) = MONTH(CURRENT_DATE) AND  YEAR(s.fecha) = YEAR(CURRENT_DATE)
+        GROUP BY p.nombre,p.id,p.descripcion
+        ORDER BY SUM(od.cantidad) DESC");
+
+        $clientes = DB::select("SELECT c.id, c.nombre, c.email, c.telefono, COUNT(o.id) AS 'cantidad' FROM orders o 
+        INNER JOIN customers c 
+        ON o.customer_id = c.id
+        INNER JOIN sales s 
+        ON s.order_id = o.id
+        WHERE MONTH(s.fecha) = MONTH(CURRENT_DATE) AND  YEAR(s.fecha) = YEAR(CURRENT_DATE)
+        GROUP BY c.nombre, c.email, c.telefono, c.id
+        ORDER BY COUNT(o.id) DESC;");
+
+        return view('reporte.productos.index',compact('productos','clientes'));
+    }
+
+    public function ver($id){
+        $detalle = DB::select("SELECT p.id, p.nombre, p.descripcion, SUM(od.cantidad) as 'cantidad' FROM order_details od
+        INNER JOIN entry_details ed
+        ON od.entry_detail_id = ed.id
+        INNER JOIN products p
+        ON ed.product_id = p.id
+        INNER JOIN orders o
+        ON od.order_id = o.id
+        INNER JOIN sales s 
+        ON s.order_id = o.id
+        INNER JOIN customers c 
+        ON o.customer_id = c.id
+        WHERE MONTH(s.fecha) = MONTH(CURRENT_DATE) AND  YEAR(s.fecha) = YEAR(CURRENT_DATE) AND c.id = $id
+        GROUP BY p.nombre,p.id,p.descripcion
+        ORDER BY SUM(od.cantidad) DESC");
+
+        $cliente = Customer::findOrFail($id);
+
+        return view('reporte.productos.ver',compact('detalle','cliente'));
+    }
+
 }
